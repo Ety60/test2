@@ -1,0 +1,2 @@
+All Telegram API endpoints return 401 Unauthorized as of 2026-04-28T19:11Z.
+Token bot_id 7126975865 is well-formed but the secret part is no longer accepted.

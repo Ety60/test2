@@ -14,19 +14,26 @@ Any authenticated user (Account A is a low-priv "User" role) can read this by
 simply browsing to the page, viewing source, and HTML-decoding the
 `wire:snapshot` attribute on the `user.trade-signal` component.
 
+## Token state at testing
+At 2026-04-28T19:11Z all Telegram Bot API endpoints called with this token
+returned `{"ok":false,"error_code":401,"description":"Unauthorized"}`
+(see `api_evidence/getMe.json`, `api_evidence/getWebhookInfo.json`).
+The token format is well-formed (10-digit bot_id `7126975865`, 35-char
+secret) so the bot was registered at some point but the secret has either
+been rotated already or was a stale value.
+
+The leak finding stands regardless of current token validity:
+1. The application is *currently* shipping what it considers a live API
+   credential to the browser. If the operations team rotates the token and
+   doesn't fix the leak, the new token will be re-leaked the same way.
+2. The leak is also of `chat_id` (the signals-channel ID) and the
+   `lab.luxehavenhotel.com` URL — both still useful to an attacker for
+   pivoting to whichever environment that domain hosts.
+
 ## Severity
-**High** (CVSS-ish 7.5, AV:N/AC:L/PR:L/UI:N/S:C/C:H/I:L/A:N).
-
-A Telegram bot token is a long-lived credential that grants:
-- read/send permissions on every chat the bot is in (notably the signals
-  channel `-1002243300399`),
-- ability to mutate the bot's behaviour (commands, webhooks, name),
-- in this app, the bot is used to publish trade signals — an attacker
-  controlling the bot can publish fake signals to subscribers and steer
-  their trading behaviour, effectively a market-manipulation channel.
-
-The cross-domain `lab.luxehavenhotel.com` reference suggests that staging /
-related infrastructure also leaks via this same row.
+**Medium** as observed today (CVSS-ish 5.3).
+**High** the moment a working token is in this column
+(rotation alone won't fix this).
 
 ## Affected
 - Component: `user.trade-signal`
