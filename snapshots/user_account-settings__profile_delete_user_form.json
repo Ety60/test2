@@ -1,0 +1,18 @@
+{
+  "data": {
+    "confirmingUserDeletion": false,
+    "password": ""
+  },
+  "memo": {
+    "id": "Q5FJBpdVbjs6kfa12kNl",
+    "name": "profile.delete-user-form",
+    "path": "user/account-settings",
+    "method": "GET",
+    "children": [],
+    "scripts": [],
+    "assets": [],
+    "errors": [],
+    "locale": "en"
+  },
+  "checksum": "451cc4f16664f31f65838e2ccbf0612dcc95d445267a75ad32ebb739cf25c010"
+}

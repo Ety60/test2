@@ -1,0 +1,24 @@
+{
+  "data": {
+    "coin": [
+      null,
+      {
+        "class": "App\\Models\\CryptoCurrency",
+        "key": 9,
+        "s": "mdl"
+      }
+    ]
+  },
+  "memo": {
+    "id": "Lay3NlYZ5p85uL8fIOP1",
+    "name": "user.crypto-swapping.view-coin",
+    "path": "user/crypto-swap/coin/BTC",
+    "method": "GET",
+    "children": [],
+    "scripts": [],
+    "assets": [],
+    "errors": [],
+    "locale": "en"
+  },
+  "checksum": "808089b736bf674e37ed146ac1dca0f0ee9ae7e87faa8b9805a49a881b0e5cbd"
+}

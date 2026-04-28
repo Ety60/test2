@@ -1,0 +1,24 @@
+{
+  "data": {
+    "paginators": [
+      {
+        "page": 1
+      },
+      {
+        "s": "arr"
+      }
+    ]
+  },
+  "memo": {
+    "id": "eZDR3ldperUsjOryVvF1",
+    "name": "user.transactions.withdrawal",
+    "path": "user/transactions/withdrawal",
+    "method": "GET",
+    "children": [],
+    "scripts": [],
+    "assets": [],
+    "errors": [],
+    "locale": "en"
+  },
+  "checksum": "8fac4db7848a1b3640a90e54156e4b5137cd0483a84b0d56d9b673f6cea96361"
+}

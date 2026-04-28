@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" class="auto">
+<!--
+Livewire\Exceptions\PublicPropertyNotFoundException: Unable to set component data. Public property [$abilities] not found on component: [user.account-settings.show] in file /home/gainledg/public_html/vendor/livewire/livewire/src/Mechanisms/HandleComponents/HandleComponents.php on line 318
+
+#0 /home/gainledg/public_html/vendor/livewire/livewire/src/Mechanisms/HandleComponents/HandleComponents.php(300): Livewire\Mechanisms\HandleComponents\HandleComponents-&gt;updateProperty()
+#1 /home/gainledg/public_html/vendor/livewire/livewire/src/Mechanisms/HandleComponents/HandleComponents.php(98): Livewire\Mechanisms\HandleComponents\HandleComponents-&gt;updateProperties()
+#2 /home/gainledg/public_html/vendor/livewire/livewire/src/LivewireManager.php(97): Livewire\Mechanisms\HandleComponents\HandleComponents-&gt;update()
+#3 /home/gainledg/public_html/vendor/livewire/livewire/src/Mechanisms/HandleRequests/HandleRequests.php(94): Livewire\LivewireManager-&gt;update()
+#4 /home/gainledg/public_html/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php(46): Livewire\Mechanisms\HandleRequests\HandleRequests-&gt;handleUpdate()
+#5 /home/gainledg/public_html/vendor/laravel/framework/src/Illuminate/Routing/Route.php(259): Illuminate\Routing\ControllerDispatcher-&gt;dispatch()
+#6 /home/gainledg/public_html/vendor/laravel/framework/src/Illuminate/Routing/Route.php(205): Illuminate\Routing\Route-&gt;runController()
+#7 /home/gainledg/public_html/vendor/laravel/framework/src/Illuminate/Routing/Router.php(806): Illuminate\Routing\Route-&gt;run()
+#8 /home/gainledg/public_html/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(144): Illuminate\Routing\Router-&gt;Illuminate\Routing\{closure}()
+#9 /home/gainledg/public_html/app/Http/Middleware/UpdateUserStatus.php(24): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}()
+#10 /home/gainledg/public_html/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): App\Http\Middleware\UpdateUserStatus-&gt;handle()
+#11 /home/gainledg/public_html/app/Http/Middleware/SetDefaultLocaleHeaders.php(16): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}()
+#12 /home/gainledg/public_html/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): App\Http\Middleware\SetDefaultLocaleHeaders-&gt;handle()
+#13 /home/gainledg/public_html/app/Http/Middleware/SetLocale.php(22): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}()
+#14 /home/gainledg/public_html/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): App\Http\Middleware\SetLocale-&gt;handle()
+#15 /home/gainledg/public_html/app/Http/Middleware/BlockIpAddressMiddleware.php(27): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}()
+#16 /home/gainledg/public_html/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): App\Http\Middleware\BlockIpAddressMiddleware-&gt;handle()
+#17 /home/gainledg/public_html/vendor/laravel/framework/src/Illuminate/Routing/Middleware/SubstituteBindings.php(50): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}()
+#18 /home/gainledg/public_html/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate\Routing\Middleware\SubstituteBindings-&gt;handle()
+#19 /home/gainledg/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/VerifyCsrfToken.php(78): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}()
+#20 /home/gainledg/public_html/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate\Foundation\Http\Middleware\VerifyCsrfToken-&gt;handle()
+#21 /home/gainledg/public_html/vendor/laravel/framework/src/Illuminate/View/Middleware/ShareErrorsFromSession.php(49): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}()
+#22 /home/gainledg/public_html/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate\View\Middleware\ShareErrorsFromSession-&gt;handle()
+#23 /home/gainledg/public_html/vendor/laravel/framework/src/Illuminate/Session/Middleware/StartSession.php(121): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}()
+#24 /home/gainledg/public_html/vendor/laravel/framework/src/Illuminate/Session/Middleware/StartSession.php(64): Illuminate\Session\Middleware\StartSession-&gt;handleStatefulRequest()
+#25 /home/gainledg/public_html/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate\Session\Middleware\StartSession-&gt;handle()
+#26 /home/gainledg/public_html/vendor/laravel/framework/src/Illuminate/Cookie/Middleware/AddQueuedCookiesToResponse.php(37): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}()
+#27 /home/gainledg/public_html/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse-&gt;handle()
+#28 /home/gainledg/public_html/vendor/laravel/framework/src/Illuminate/Cookie/Middleware/EncryptCookies.php(67): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}()
+#29 /home/gainledg/public_html/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate\Cookie\Middleware\EncryptCookies-&gt;handle()
+#30 /home/gainledg/public_html/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(119): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}()
+#31 /home/gainledg/public_html/vendor/laravel/framework/src/Illuminate/Routing/Router.php(805): Illuminate\Pipeline\Pipeline-&gt;then()
+#32 /home/gainledg/public_html/vendor/laravel/framework/src/Illuminate/Routing/Router.php(784): Illuminate\Routing\Router-&gt;runRouteWithinStack()
+#33 /home/gainledg/public_html/vendor/laravel/framework/src/Illuminate/Routing/Router.php(748): Illuminate\Routing\Router-&gt;runRoute()
+#34 /home/gainledg/public_html/vendor/laravel/framework/src/Illuminate/Routing/Router.php(737): Illuminate\Routing\Router-&gt;dispatchToRoute()
+#35 /home/gainledg/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(200): Illuminate\Routing\Router-&gt;dispatch()
+#36 /home/gainledg/public_html/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(144): Illuminate\Foundation\Http\Kernel-&gt;Illuminate\Foundation\Http\{closure}()
+#37 /home/gainledg/public_html/vendor/livewire/livewire/src/Features/SupportDisablingBackButtonCache/DisableBackButtonCacheMiddleware.php(19): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}()
+#38 /home/gainledg/public_html/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Livewire\Features\SupportDisablingBackButtonCache\DisableBackButtonCacheMiddleware-&gt;handle()
+#39 /home/gainledg/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}()
+#40 /home/gainledg/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull.php(31): Illuminate\Foundation\Http\Middleware\TransformsRequest-&gt;handle()
+#41 /home/gainledg/public_html/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull-&gt;handle()
+#42 /home/gainledg/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}()
+#43 /home/gainledg/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TrimStrings.php(40): Illuminate\Foundation\Http\Middleware\TransformsRequest-&gt;handle()
+#44 /home/gainledg/public_html/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate\Foundation\Http\Middleware\TrimStrings-&gt;handle()
+#45 /home/gainledg/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ValidatePostSize.php(27): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}()
+#46 /home/gainledg/public_html/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate\Foundation\Http\Middleware\ValidatePostSize-&gt;handle()
+#47 /home/gainledg/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance.php(99): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}()
+#48 /home/gainledg/public_html/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance-&gt;handle()
+#49 /home/gainledg/public_html/vendor/laravel/framework/src/Illuminate/Http/Middleware/HandleCors.php(49): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}()
+#50 /home/gainledg/public_html/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate\Http\Middleware\HandleCors-&gt;handle()
+#51 /home/gainledg/public_html/vendor/laravel/framework/src/Illuminate/Http/Middleware/TrustProxies.php(39): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}()
+#52 /home/gainledg/public_html/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate\Http\Middleware\TrustProxies-&gt;handle()
+#53 /home/gainledg/public_html/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(119): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}()
+#54 /home/gainledg/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(175): Illuminate\Pipeline\Pipeline-&gt;then()
+#55 /home/gainledg/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(144): Illuminate\Foundation\Http\Kernel-&gt;sendRequestThroughRouter()
+#56 /home/gainledg/public_html/public/index.php(51): Illuminate\Foundation\Http\Kernel-&gt;handle()
+#57 {main}
+-->
+<head>
+    <!-- Hide dumps asap -->
+    <style>
+        pre.sf-dump {
+            display: none !important;
+        }
+    </style>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="robots" content="noindex, nofollow">
+
+    <title>Unable to set component data. Public property [$abilities] not found on component: [user.account-settings.show]</title>
+
+    <script>
+        // Livewire modals remove CSS classes on the `html` element so we re-add
+        // the theme class again using JavaScript.
+        document.documentElement.classList.add('auto');
+
+        // Process `auto` theme as soon as possible to avoid flashing of white background.
+        if (document.documentElement.classList.contains('auto') && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+    </script>
+
+    <style>/*
+! tailwindcss v3.3.3 | MIT License | https://tailwindcss.com
+*/*,:after,:before{box-sizing:border-box;border:0 solid #e5e7eb}:after,:before{--tw-content:""}html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;-o-tab-size:4;tab-size:4;font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif,BlinkMacSystemFont,Helvetica Neue,Arial,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;font-feature-settings:normal;font-variation-settings:normal}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-setti

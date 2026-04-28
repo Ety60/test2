@@ -1,0 +1,15 @@
+{
+  "data": [],
+  "memo": {
+    "id": "ROE6MCp2wjYMOWtdbu8j",
+    "name": "user.notifications-count",
+    "path": "user/copy-trader",
+    "method": "GET",
+    "children": [],
+    "scripts": [],
+    "assets": [],
+    "errors": [],
+    "locale": "en"
+  },
+  "checksum": "159749e74417ecb2233496852b3d4a2f1296dce976a544a2456589167e587356"
+}

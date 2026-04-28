@@ -1,0 +1,15 @@
+{
+  "data": [],
+  "memo": {
+    "id": "VasdfcZ29xq084jK0hSK",
+    "name": "user.notifications-count",
+    "path": "user/referral",
+    "method": "GET",
+    "children": [],
+    "scripts": [],
+    "assets": [],
+    "errors": [],
+    "locale": "en"
+  },
+  "checksum": "2d541c60bf507d9115574ab9032655be03ad68b9684c98cf632374810bb263b4"
+}

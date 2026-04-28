@@ -1,0 +1,44 @@
+[
+  {
+    "comp": "user.account-settings.show",
+    "method": "loadUser",
+    "code": 500,
+    "class": "method NOT FOUND"
+  },
+  {
+    "comp": "user.account-settings.show",
+    "method": "selectUser",
+    "code": 500,
+    "class": "method NOT FOUND"
+  },
+  {
+    "comp": "user.account-settings.show",
+    "method": "setUserId",
+    "code": 0,
+    "class": "HTTP 0"
+  },
+  {
+    "comp": "user.account-settings.show",
+    "method": "setUser",
+    "code": 500,
+    "class": "method NOT FOUND"
+  },
+  {
+    "comp": "user.account-settings.show",
+    "method": "viewAs",
+    "code": 500,
+    "class": "method NOT FOUND"
+  },
+  {
+    "comp": "user.account-settings.show",
+    "method": "impersonate",
+    "code": 500,
+    "class": "method NOT FOUND"
+  },
+  {
+    "comp": "user.account-settings.show",
+    "method": "assumeIdentity",
+    "code": 419,
+    "class": "HTTP 419"
+  }
+]

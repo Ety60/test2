@@ -1,0 +1,24 @@
+{
+  "data": {
+    "paginators": [
+      {
+        "page": 1
+      },
+      {
+        "s": "arr"
+      }
+    ]
+  },
+  "memo": {
+    "id": "npZRFMbwsmh0BzSEvJft",
+    "name": "user.transactions.others",
+    "path": "user/transactions/others",
+    "method": "GET",
+    "children": [],
+    "scripts": [],
+    "assets": [],
+    "errors": [],
+    "locale": "en"
+  },
+  "checksum": "50c5bd54fbf986b0868edf8680f05135e767f0a8f0da1e059c49a3a21bea7dc1"
+}

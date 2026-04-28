@@ -1,0 +1,15 @@
+{
+  "data": [],
+  "memo": {
+    "id": "SPhHpUhuggGVk0Hd3bjE",
+    "name": "user.notifications-count",
+    "path": "user/investment/buy-plan",
+    "method": "GET",
+    "children": [],
+    "scripts": [],
+    "assets": [],
+    "errors": [],
+    "locale": "en"
+  },
+  "checksum": "ed4d936a14078d2853ccfd5419601165a00a02dc24cc643aaeb18f7fe203825e"
+}

@@ -1,0 +1,19 @@
+{
+  "data": {
+    "request": false,
+    "selectedMethod": null,
+    "method": null
+  },
+  "memo": {
+    "id": "ScmKkKTQgPrhKH0HZQ7x",
+    "name": "user.withdrawal.choose-withdraw-method",
+    "path": "user/withdraw/request",
+    "method": "GET",
+    "children": [],
+    "scripts": [],
+    "assets": [],
+    "errors": [],
+    "locale": "en"
+  },
+  "checksum": "86f8193257a3e8ff144d161baca8ae59534e0935082b2e58b1524146afdefa51"
+}

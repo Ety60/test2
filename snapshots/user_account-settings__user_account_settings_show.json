@@ -1,0 +1,56 @@
+{
+  "data": {
+    "avatar": null,
+    "name": "Joske Meulemans",
+    "email": "joskemeulemans@hotmail.com",
+    "phone_number": "0685165942",
+    "country": "France",
+    "address": null,
+    "username": "joske",
+    "user": [
+      null,
+      {
+        "class": "App\\Models\\User",
+        "key": 136,
+        "s": "mdl"
+      }
+    ],
+    "current_password": null,
+    "password": null,
+    "password_confirmation": null,
+    "active_tab": "profile",
+    "account_name": null,
+    "account_number": null,
+    "bank_name": null,
+    "swift_code": null,
+    "btc_address": null,
+    "eth_address": null,
+    "ltc_address": null,
+    "usdt_address": null
+  },
+  "memo": {
+    "id": "7qmns9udcMjmH9wjVcDT",
+    "name": "user.account-settings.show",
+    "path": "user/account-settings",
+    "method": "GET",
+    "children": {
+      "lw-3950334646-0": [
+        "div",
+        "3UuBgKmua3l9RuFh7CrT"
+      ],
+      "lw-3950334646-1": [
+        "div",
+        "SudG4BO0TmRsI0Skispm"
+      ],
+      "lw-3950334646-2": [
+        "div",
+        "Q5FJBpdVbjs6kfa12kNl"
+      ]
+    },
+    "scripts": [],
+    "assets": [],
+    "errors": [],
+    "locale": "en"
+  },
+  "checksum": "3e59b842d0bd263dff8e3a199d203e695feaf469b47bd16e8515c5c574d3f27e"
+}

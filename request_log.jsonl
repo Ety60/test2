@@ -1,0 +1,19 @@
+{"phase":"0","ts_iso":"2026-04-28","method":"GET","url":"https://gainledgecapital.com/","note":"home, banner check"}
+{"phase":"0","ts_iso":"2026-04-28","method":"GET","url":"https://gainledgecapital.com/livewire/livewire.js?id=cc800bf4","note":"version fingerprint -> 3.14.1"}
+{"phase":"0","ts_iso":"2026-04-28","method":"POST","url":"https://gainledgecapital.com/login","note":"Account A login","jar":"cookies_a.txt"}
+{"phase":"0","ts_iso":"2026-04-28","method":"POST","url":"https://gainledgecapital.com/login","note":"Account B login","jar":"cookies_b.txt"}
+{"phase":"1","ts_iso":"2026-04-28","method":"GET","url":"<22 user routes>","note":"crawl + snapshot extract"}
+{"phase":"2","ts_iso":"2026-04-28","method":"GET","url":"<8 user routes via Account B>","note":"snapshot diff"}
+{"phase":"2","ts_iso":"2026-04-28","method":"GET","url":"https://gainledgecapital.com/admin/{login,dashboard,users,users/{id},settings,plans,account-settings,settings/general,...}","note":"admin path enum, ~70 paths"}
+{"phase":"3.1","ts_iso":"2026-04-28","method":"POST","url":"https://gainledgecapital.com/livewire/update","note":"user.<x> assignment probes -> 500 (framework block)","finding":"01"}
+{"phase":"3.1","ts_iso":"2026-04-28","method":"POST","url":"https://gainledgecapital.com/livewire/update","note":"top-level prop probes -> 500 PublicPropertyNotFoundException"}
+{"phase":"3.1","ts_iso":"2026-04-28","method":"POST","url":"https://gainledgecapital.com/livewire/update","note":"saveProfile email change w/o current_password -> snapshot mutated, DB unchanged","finding":"05"}
+{"phase":"3.1","ts_iso":"2026-04-28","method":"POST","url":"https://gainledgecapital.com/livewire/update","note":"changePassword w/o current_password -> validation blocked correctly"}
+{"phase":"3.1","ts_iso":"2026-04-28","method":"POST","url":"https://gainledgecapital.com/livewire/update","note":"user.kyc.form status=approved + submit() -> validation hit on 11 fields, status persisted in snapshot","finding":"06"}
+{"phase":"3.2","ts_iso":"2026-04-28","method":"POST","url":"https://gainledgecapital.com/livewire/update","note":"method enumeration on user.account-settings.show -> all NotFound"}
+{"phase":"3.2","ts_iso":"2026-04-28","method":"POST","url":"https://gainledgecapital.com/livewire/update","note":"admin.auth.login methods: only `store` exists, `mount` lifecycle-blocked"}
+{"phase":"3.3","ts_iso":"2026-04-28","method":"GET","url":"https://gainledgecapital.com/admin/users/{1,100,137,200,5000}","note":"302 vs 404 enumeration","finding":"04"}
+{"phase":"3.3","ts_iso":"2026-04-28","method":"GET","url":"https://gainledgecapital.com/user/trade-signals/{0,1,2,3,5,10,99,1.5}","note":"all 200, same Telegram token leak","finding":"02"}
+{"phase":"3.3","ts_iso":"2026-04-28","method":"POST","url":"https://gainledgecapital.com/livewire/update","note":"snapshot replay anon -> 302 to /login (gated)"}
+{"phase":"3.4","ts_iso":"2026-04-28","method":"POST","url":"https://gainledgecapital.com/livewire/update","note":"SQLi probes on search/sort_value/selectedMethod -> no errors; UNION SELECT 406 (WAF)"}
+{"phase":"0","ts_iso":"2026-04-28","method":"GET","url":"https://gainledgecapital.com/{.env,/.git/...,robots.txt,phpinfo.php,...}","note":"info-disclosure scan -> WAF/403 only, no leaks"}

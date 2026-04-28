@@ -1,0 +1,15 @@
+{
+  "data": [],
+  "memo": {
+    "id": "E2flG6p9Kmf9lweGU7Yw",
+    "name": "user.notifications-count",
+    "path": "user/transactions/withdrawal",
+    "method": "GET",
+    "children": [],
+    "scripts": [],
+    "assets": [],
+    "errors": [],
+    "locale": "en"
+  },
+  "checksum": "bdcbb5353a349f8b12e97ac5c324376a9d464c503ff2fd4d5884fb9d803be0af"
+}

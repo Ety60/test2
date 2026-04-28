@@ -1,0 +1,65 @@
+{
+  "data": {
+    "coin": [
+      null,
+      {
+        "class": "App\\Models\\CryptoCurrency",
+        "key": 9,
+        "s": "mdl"
+      }
+    ],
+    "from_currency": [
+      null,
+      {
+        "class": "App\\Models\\CryptoCurrency",
+        "key": 9,
+        "s": "mdl"
+      }
+    ],
+    "symbol": "BTC",
+    "from_is_account_balance": true,
+    "to_currency": [
+      null,
+      {
+        "class": "App\\Models\\CryptoCurrency",
+        "key": 9,
+        "s": "mdl"
+      }
+    ],
+    "to_is_account_balance": false,
+    "to_amount": null,
+    "from_amount": null,
+    "quantity": null,
+    "from_balance": "0.00",
+    "to_balance": "0.00000000",
+    "user": [
+      null,
+      {
+        "class": "App\\Models\\User",
+        "key": 136,
+        "s": "mdl"
+      }
+    ],
+    "user_account": [
+      null,
+      {
+        "class": "App\\Models\\CryptoAccount",
+        "key": 65,
+        "s": "mdl"
+      }
+    ],
+    "to_deduct": null
+  },
+  "memo": {
+    "id": "YLyDyarIk9auv0CYjWy8",
+    "name": "user.crypto-swapping.conversion",
+    "path": "user/crypto-swap/convert/BTC",
+    "method": "GET",
+    "children": [],
+    "scripts": [],
+    "assets": [],
+    "errors": [],
+    "locale": "en"
+  },
+  "checksum": "2c0ba538c455aaf8796fd816f9cc216b634a7183e899b57d6d31ec7fec1508b3"
+}

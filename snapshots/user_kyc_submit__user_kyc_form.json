@@ -1,0 +1,30 @@
+{
+  "data": {
+    "first_name": null,
+    "last_name": null,
+    "email": null,
+    "phone_number": null,
+    "dob": null,
+    "social_media": null,
+    "address": null,
+    "city": null,
+    "state": null,
+    "country": null,
+    "document_type": "Int'l Passport",
+    "frontImg": null,
+    "backImg": null,
+    "status": "under review"
+  },
+  "memo": {
+    "id": "PnDlujuwruCt2PO5NKwq",
+    "name": "user.kyc.form",
+    "path": "user/kyc/submit",
+    "method": "GET",
+    "children": [],
+    "scripts": [],
+    "assets": [],
+    "errors": [],
+    "locale": "en"
+  },
+  "checksum": "9ec288457d93d7de5b9ecc741cb635aafa6bf02b114c5f40318536e20c59e775"
+}

@@ -1,0 +1,15 @@
+{
+  "data": [],
+  "memo": {
+    "id": "RgsR3TwUy1bxHe9Im79A",
+    "name": "user.notifications-count",
+    "path": "user/transfer-fund",
+    "method": "GET",
+    "children": [],
+    "scripts": [],
+    "assets": [],
+    "errors": [],
+    "locale": "en"
+  },
+  "checksum": "fe0176c659f97c6404fde82bd99527bd9754331c22630da9f2933fa9efaa61bd"
+}

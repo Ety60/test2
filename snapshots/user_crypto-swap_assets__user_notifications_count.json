@@ -1,0 +1,15 @@
+{
+  "data": [],
+  "memo": {
+    "id": "Mdn47m1IJrdkwcSydQCW",
+    "name": "user.notifications-count",
+    "path": "user/crypto-swap/assets",
+    "method": "GET",
+    "children": [],
+    "scripts": [],
+    "assets": [],
+    "errors": [],
+    "locale": "en"
+  },
+  "checksum": "6f777b8f4f24156c40245d9bcf6a9593f13175edeb7d1f99c8cc06d3406ad61a"
+}

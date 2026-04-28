@@ -1,0 +1,51 @@
+{
+  "data": {
+    "set": [
+      {
+        "signal_monthly_fee": "100",
+        "signal_quartly_fee": "200",
+        "signal_yearly_fee": "300",
+        "chat_id": "-1002243300399",
+        "telegram_bot_api": "7126975865:AAFu8EqrY6uqO9HxY6lL6xNhTM_ZBp-oNRo",
+        "publish_message": "",
+        "result_message": "",
+        "website": "https://lab.luxehavenhotel.com/get-started",
+        "telegram_link": "",
+        "monthly": "100",
+        "quaterly": "200",
+        "yearly": "300"
+      },
+      {
+        "s": "arr"
+      }
+    ],
+    "page": "1",
+    "nextPageUrl": null,
+    "previousPageUrl": null,
+    "signals": [
+      [],
+      {
+        "class": "Illuminate\\Support\\Collection",
+        "s": "clctn"
+      }
+    ],
+    "subscription": null
+  },
+  "memo": {
+    "id": "HmiPkJSere9Btpf9bdmU",
+    "name": "user.trade-signal",
+    "path": "user/trade-signals/1",
+    "method": "GET",
+    "children": {
+      "lw-3072548575-0": [
+        "div",
+        "jOHDcrdZrasyprWVGfJq"
+      ]
+    },
+    "scripts": [],
+    "assets": [],
+    "errors": [],
+    "locale": "en"
+  },
+  "checksum": "8576d4e2dba15f99bf8a2f35ebc68a09bcd35ee65c343c6074bc154d300af118"
+}

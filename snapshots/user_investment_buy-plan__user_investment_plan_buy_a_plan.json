@@ -1,0 +1,28 @@
+{
+  "data": {
+    "planSelected": [
+      null,
+      {
+        "class": "App\\Models\\Plan",
+        "key": 4,
+        "s": "mdl"
+      }
+    ],
+    "paymentMethod": "Account Balance",
+    "disabled": true,
+    "amount": null,
+    "roiInfo": "65.0%"
+  },
+  "memo": {
+    "id": "EaWLtlDuNG7Y3ggvIdud",
+    "name": "user.investment-plan.buy-a-plan",
+    "path": "user/investment/buy-plan",
+    "method": "GET",
+    "children": [],
+    "scripts": [],
+    "assets": [],
+    "errors": [],
+    "locale": "en"
+  },
+  "checksum": "3bb1aba5ab0278238f8cccaeac4f958faefa248ec122168aca9ac9ff19b9940a"
+}
