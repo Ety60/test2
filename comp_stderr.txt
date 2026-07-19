@@ -1,0 +1,17 @@
+connecting to wss://entrypoint-finney.opentensor.ai:443 ...
+  v11 SDK: pulling 129 metagraphs one at a time (no bulk call in v11, this takes a minute)
+got 129 subnets
+sampling history for netuids [15, 44, 67, 114, 38, 8, 82, 68, 34] ...
+  sn15   samples=23   union=234  mean=111.8  rotation=2.09
+  sn44   samples=23   union=26   mean=11.0   rotation=2.37
+  sn67   samples=23   union=242  mean=138.9  rotation=1.74
+  sn114  samples=23   union=107  mean=85.2   rotation=1.26
+  sn38   samples=5    union=3    mean=1.0    rotation=3.00
+  sn8    samples=23   union=41   mean=37.7   rotation=1.09
+  sn82   samples=23   union=1    mean=1.0    rotation=1.00
+  sn68   samples=23   union=2    mean=2.0    rotation=1.00
+  sn34   samples=23   union=33   mean=26.8   rotation=1.23
+
+wrote subnets.json / subnets.csv
+
+Read the WTA column before believing a low 'paid' count.

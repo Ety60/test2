@@ -58,7 +58,7 @@ ARCHIVE_RPC = ARCHIVE # historical blocks; only used if HISTORY_DAYS > 0
 HISTORY_DAYS = 7.0
 
 # Sample every Nth tempo. 1 = every epoch (most accurate, slowest).
-HISTORY_STEP_TEMPOS = 3
+HISTORY_STEP_TEMPOS = 6
 
 # Which subnets to sample history for.
 #   []          -> auto-pick: of the 40 richest subnets, the 15 that LOOK
@@ -66,7 +66,7 @@ HISTORY_STEP_TEMPOS = 3
 #                  ones most likely to be KotH traps, so they're what you
 #                  actually want verified.
 #   [4, 64, 51] -> only these.
-NETUIDS: list[int] = [97, 120, 64, 4, 107, 51, 96]
+NETUIDS: list[int] = [15, 44, 67, 114, 38, 8, 82, 68, 34]
 
 # --- filtering / output ---------------------------------------------------
 MIN_TAO_DAY = 0.0     # drop subnets emitting less than this many TAO/day

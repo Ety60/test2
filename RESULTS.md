@@ -41,3 +41,25 @@ is the binding constraint. real/d is the honest income figure; spot/d is inflate
 - Archive node ran ~10 min/subnet under sustained load; full Step 2 pass ~70 min, no errors.
 - CONFIG left at Step 2 values: HISTORY_DAYS=7.0, HISTORY_STEP_TEMPOS=3, NETUIDS=[97,120,64,4,107,51,96].
 - subnets.{json,csv} = Step 2 output; subnets_step1.{json,csv} = Step 1 snapshot.
+
+## Competition-only competitor overview (2nd pass, coarse 23-sample history)
+
+Compute/serving markets excluded (Chutes 64, lium.io 51, Targon 4, Verathos 96, Gradients 56, Vidaio 85, MVTRX 79, iota 9, ...).
+
+| net | name     | competes on               | TAO/d | paid | union/7d | rotation | genuine competitors            |
+|----:|----------|---------------------------|------:|-----:|---------:|---------:|--------------------------------|
+|  82 | Compelle | data/AI tasks             | 29.1 |   1  |    1     |  1.00    | ~1  single incumbent (monopoly)|
+|  68 | NOVA     | pharma molecule discovery | 24.4 |   2  |    2     |  1.00    | ~2  thin, exotic work          |
+|  38 | ChronoLLM| uncertain                 | 32.3 |   1  |    3     |  3.00    | ~3  (only 5 samples, low conf) |
+| 120 | Affine   | RL / reasoning            | 84.9 |   5  |    8     |  1.60    | ~8  thin BECAUSE hard          |
+|  44 | Score    | football prediction       | 40.3 |  10  |   26     |  2.37    | ~26 rotating (field ~246)      |
+|  34 | BitMind  | deepfake detection        | 14.1 |  31  |   33     |  1.23    | ~33 moderate, stable           |
+|   8 | Vanta    | proprietary trading       | 31.7 |  35  |   41     |  1.09    | ~41 moderate, stable           |
+| 107 | Minos    | genomic variant calling   | 134.0|  20  |   72     |  3.61    | ~72-82 KotH (top1 90%)         |
+| 114 | SOMA     | MCP servers               | 37.0 | 103  |  107     |  1.26    | ~107 crowded                   |
+|  15 | ORO      | unverified                | 61.4 | 121  |  234     |  2.09    | ~234 crowded + rotating        |
+|  97 | Albedo   | unverified                | 95.3 |   5  |   16     |  3.20    | ~254 KotH trap (looks empty)   |
+|  67 | Harnyx   | deep-research agents      | 37.2 | 116  |  242     |  1.74    | ~242 most crowded              |
+
+Thinnest genuine competitions with real inflow: Affine (~8), NOVA (~2, exotic), Compelle (~1, monopoly).
+Purpose unverified: ORO (15), Albedo (97). ChronoLLM (38) history low-confidence (5 samples).
