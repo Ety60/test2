@@ -1,0 +1,5 @@
+.venv/
+__pycache__/
+*.pyc
+step2_stderr.txt
+step2_stdout.txt
