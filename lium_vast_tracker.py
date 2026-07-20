@@ -150,8 +150,12 @@ def lium_viable(o):
     return True, ""
 
 
-def evaluate(offers, mode, min_margin, show_all):
-    """Attach margin fields and return the rows we care about, best margin first."""
+def evaluate(offers, mode, min_margin, show_all, sort_by="margin"):
+    """Attach margin fields and return the rows we care about.
+
+    sort_by="margin": rank by per-GPU margin (best unit economics).
+    sort_by="total":  rank by whole-box margin (best absolute $/hr -> go wide).
+    """
     rows = []
     for o in offers:
         label, reward = reward_for(o.get("gpu_name", ""))
@@ -193,7 +197,8 @@ def evaluate(offers, mode, min_margin, show_all):
             if margin < min_margin:
                 continue
         rows.append(row)
-    rows.sort(key=lambda r: r["margin"], reverse=True)
+    key = "total_margin" if sort_by == "total" else "margin"
+    rows.sort(key=lambda r: r[key], reverse=True)
     return rows
 
 
@@ -223,7 +228,7 @@ print_table.top = 25  # rows to print; overridden by --top
 
 def scan(args):
     offers = fetch_offers(verified_only=args.verified)
-    rows = evaluate(offers, args.mode, args.min_margin, args.all)
+    rows = evaluate(offers, args.mode, args.min_margin, args.all, args.sort)
     stamp = datetime.now().strftime("%H:%M:%S")
     print(f"\n[{stamp}] {len(offers)} offers fetched; "
           f"{len(rows)} shown (mode={args.mode}, min_margin=${args.min_margin:.3f}).")
@@ -246,6 +251,8 @@ def main():
                     help="restrict to Vast 'verified' datacenter hosts")
     ap.add_argument("--top", type=int, default=25,
                     help="max rows to print, 0 = all (default: 25)")
+    ap.add_argument("--sort", choices=["margin", "total"], default="margin",
+                    help="'margin'=per-GPU unit economics, 'total'=whole-box $/hr (default: margin)")
     args = ap.parse_args()
     print_table.top = args.top
 
