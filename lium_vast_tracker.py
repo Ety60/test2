@@ -80,6 +80,7 @@ VAST_GPU_NAMES = [
 MIN_DISK_GB = 100          # >= 100 GB free
 MIN_PORTS = 2              # need at least 8080 + 2200 mappable
 MIN_RELIABILITY = 0.90     # skip flaky hosts; a dropped rental costs more than it saves
+LIUM_GPU_COUNTS = {1, 8}   # a Lium node must present exactly 1 or 8 GPUs
 
 
 def reward_for(gpu_name: str):
@@ -135,6 +136,8 @@ def fetch_offers(verified_only=False, timeout=45):
 
 def lium_viable(o):
     """Cheap pre-filter for obvious Lium disqualifiers. Returns (ok, reason)."""
+    if (o.get("num_gpus") or 0) not in LIUM_GPU_COUNTS:
+        return False, f"{o.get('num_gpus')}x GPUs (Lium needs 1 or 8)"
     if not o.get("vms_enabled"):
         return False, "no VM support"        # container-only host: cannot run Sysbox
     if o.get("is_vm_deverified"):
