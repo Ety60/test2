@@ -108,6 +108,7 @@ def fetch_offers(verified_only=False, timeout=45):
         q = {
             "gpu_name": {"in": [name]},
             "rentable": {"eq": True},
+            "vms_enabled": {"eq": True},   # Lium needs a real VM (Sysbox), not a container
             "num_gpus": {"gte": 1},
             "order": [["dph_total", "asc"]],  # cheapest first -> best margins survive cap
             "limit": 500,
@@ -134,6 +135,10 @@ def fetch_offers(verified_only=False, timeout=45):
 
 def lium_viable(o):
     """Cheap pre-filter for obvious Lium disqualifiers. Returns (ok, reason)."""
+    if not o.get("vms_enabled"):
+        return False, "no VM support"        # container-only host: cannot run Sysbox
+    if o.get("is_vm_deverified"):
+        return False, "VM deverified"
     if not o.get("public_ipaddr"):
         return False, "no public IP"
     if (o.get("direct_port_count") or 0) < MIN_PORTS:
@@ -178,6 +183,7 @@ def evaluate(offers, mode, min_margin, show_all):
             "rel": o.get("reliability") or 0,
             "disk": o.get("disk_space") or 0,
             "verified": o.get("verified", None),
+            "static_ip": bool(o.get("static_ip")),
             "viable": ok,
             "reason": reason,
         }
@@ -201,10 +207,11 @@ def print_table(rows, mode):
     print("  " + "-" * (len(hdr) - 2))
     for r in rows[: print_table.top or None]:
         flag = "" if r["viable"] else "  [!" + r["reason"] + "]"
+        ip = "static-ip" if r["static_ip"] else "dyn-ip"
         print(f"{r['gpu']:<14}{r['n']:>2}  "
               f"{r['reward']:>6.2f}  {r['ondemand_pg']:>6.3f}  {r['interruptible_pg']:>6.3f}  "
               f"{r['margin']:>+7.3f}  {r['total_margin']:>+6.2f}  "
-              f"{r['rel']:>5.2f}  {r['disk']:>5.0f}G  #{r['id']} {r['geo']}{flag}")
+              f"{r['rel']:>5.2f}  {r['disk']:>5.0f}G  #{r['id']} {r['geo']} [{ip}]{flag}")
     shown = min(len(rows), print_table.top) if print_table.top else len(rows)
     extra = f" (showing top {shown} of {len(rows)}; --top 0 for all)" if shown < len(rows) else ""
     print(f"\n  Ranked by {mode} per-GPU margin. MARGIN>0 == profit. "
@@ -261,11 +268,14 @@ def main():
         print("\nstopped.")
 
 
-# NOTE_VM: The offers feed does not expose a reliable "supports VM" flag, and Lium
-# needs a real root VM (for Sysbox), not a container. Before renting a surviving
-# candidate, confirm on the Vast console that the machine offers VM (not just
-# Docker) mode and that interruptible pricing is available for that VM -- on many
-# hosts spot/bid pricing is container-only.
+# NOTE_VM: We now filter on the offer's `vms_enabled` flag, so surviving offers
+# genuinely advertise VM (not just container) mode -- required for Lium's Sysbox.
+# In practice this means only consumer cards (RTX 5090/4090/3090) survive: Vast
+# has ~zero VM-enabled H100/H200/A6000 inventory. `static_ip` is surfaced too,
+# since a Lium node wants a stable public IP. Interruptible caveat: on Vast you
+# canNOT convert an interruptible instance to on-demand after creation, and an
+# on-demand renter preempts your interruptible instance regardless of your bid --
+# so `interruptible` margins are only safely realizable while your node is idle.
 
 if __name__ == "__main__":
     main()
