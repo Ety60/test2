@@ -1,0 +1,7 @@
+connecting to wss://entrypoint-finney.opentensor.ai:443 ...
+  v11 SDK: pulling 129 metagraphs one at a time (no bulk call in v11, this takes a minute)
+got 129 subnets
+
+wrote subnets.json / subnets.csv
+
+Read the WTA column before believing a low 'paid' count.

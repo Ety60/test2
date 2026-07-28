@@ -63,3 +63,48 @@ Compute/serving markets excluded (Chutes 64, lium.io 51, Targon 4, Verathos 96, 
 
 Thinnest genuine competitions with real inflow: Affine (~8), NOVA (~2, exotic), Compelle (~1, monopoly).
 Purpose unverified: ORO (15), Albedo (97). ChronoLLM (38) history low-confidence (5 samples).
+
+# ===== RE-RUN: block 8,721,365 (+9.0 days after first run) =====
+
+Elapsed since first snapshot: 64,774 blocks = 9.0 days. Fresh 7d window barely
+overlaps the original, so this is a near-independent measurement.
+
+## Headline changes
+
+| net | name      | TAO/d then->now | paid then->now | rotation then->now | verdict change              |
+|----:|-----------|-----------------|----------------|--------------------|-----------------------------|
+| 120 | Affine    |  84.9 -> 83.4   |    5 ->   5    |  1.60 -> 1.40      | STABLE + proven contestable |
+|  97 | Albedo    |  95.3 -> 93.7   |    5 ->   5    |  3.20 -> 2.28      | same 5x20% split as Affine  |
+| 107 | Minos     | 134.0 ->141.7   |   20 ->  20    |  3.61 -> (n/a)     | unchanged KotH (top1 89%)   |
+|  38 | ChronoLLM |  32.3 -> 24.6   |    1 ->  10    |  3.00 -> 2.00      | OPENED UP (1 -> 10 winners) |
+| 114 | SOMA      |  37.0 -> 28.4   |  103 ->   3    |  1.26 -> 1.00      | COLLAPSED to 3-winner wall  |
+|  68 | NOVA      |  24.4 -> 21.2   |    2 ->   2    |  1.00 -> 3.00      | 88d incumbent GONE; reset   |
+|  82 | Compelle  |  29.1 ->  8.1   |    1 ->   1    |  1.00 -> (n/a)     | inflow -72%, still WTA      |
+|   8 | Vanta     |  31.7 ->  0.0   |   35 ->  36    |  1.09 -> (n/a)     | DEAD - zero TAO inflow      |
+|  53 | engy      |   0.0 -> 30.3   |   -- ->  45    |   --  -> 3.33      | NEW (compute/serving mkt)   |
+| 118 | Ditto     |   0.0 -> 22.9   |   -- ->   5    |   --  -> 5.40      | NEW - worst KotH seen       |
+|   9 | iota      |  10.2 -> 33.7   |    2 ->   2    |   --  -> 1.38      | thin, lowest churn (5/wk)   |
+
+## Affine (120): slot turnover proves contestability
+Then earners: uid 5(13.7d) 96(4.9d) 145(9.6d) 178(17.1d) 210(12.7d)
+Now  earners: uid 96(13.2d) 145(17.9d) 191(3.5d) 195(10.8d) 201(6.2d)
+=> 3 of 5 slots changed hands in 9 days; uid 96/145 held. Still exact 20% x5
+split (incentive 0.2 each). burn 1.02 -> 0.85 TAO. 111 joined last 7d.
+This is the only candidate where breaking in is DEMONSTRATED, repeatedly.
+
+## Corrections to the earlier report
+- Albedo (97) is NOT a different animal from Affine: identical 5 x 20% even
+  split. It just rotates ~2x faster (one earner 0.4d old), so slots are harder
+  to HOLD. Earlier "KotH trap" framing was imprecise.
+- NOVA (68): the 88-day entrenched incumbent no longer exists. All 59 miners
+  registered within 7d; both earners 0.8d old. "Hardest wall" verdict is void -
+  replaced by instability, not by an opening.
+- Vanta (8) had TAO inflow cut to zero; its alpha income is now unbacked.
+
+## Ranking (unchanged at #1)
+1. Affine (120)  - contestable 5-slot even split, stable inflow, proven entry
+2. ChronoLLM (38)- newly opened (1->10 winners, smooth decay), only 2 joins/wk,
+                   BUT 168h immunity lock-up + 0.74 TAO burn
+3. Albedo (97)   - same mechanism as Affine, faster turnover = harder to hold
+AVOID: Ditto(118) rot 5.40; engy(53) compute market; Vanta(8) dead;
+       Compelle(82) -72% inflow; SOMA(114) 245 miners scoring zero; Minos(107) KotH.
