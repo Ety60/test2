@@ -108,3 +108,52 @@ This is the only candidate where breaking in is DEMONSTRATED, repeatedly.
 3. Albedo (97)   - same mechanism as Affine, faster turnover = harder to hold
 AVOID: Ditto(118) rot 5.40; engy(53) compute market; Vanta(8) dead;
        Compelle(82) -72% inflow; SOMA(114) 245 miners scoring zero; Minos(107) KotH.
+
+# ===== BROAD SWEEP: all subnets with >=5 TAO/d inflow =====
+
+Structural scan (incentive shape + coldkey independence + ages + churn) on 12
+previously unexamined subnets; rotation pass on 6 more. Coverage now ~34 of the
+subnets that carry real TAO inflow.
+
+## EV per strong miner = (miners' realizable TAO/day) / (distinct weekly earners)
+
+| net | name      | real/d | earners | EV/miner  | burn | immunity | joins/7d |
+|----:|-----------|-------:|--------:|----------:|-----:|---------:|---------:|
+| 120 | Affine    |  34.22 |       7 | 4.89 TAO  | 0.84 |   16.7 h |      111 |
+|   9 | iota      |  13.80 |       3 | 4.60 TAO  | 0.00 |   16.7 h |        7 |
+| 107 | Minos     |  58.20 |      12 | 4.36 TAO  | 1.08 |   48.0 h |       29 |
+| 114 | SOMA      |  11.98 |       3 | 3.99 TAO  | 0.33 |   16.7 h |      245 |
+|  97 | Albedo    |  38.61 |      11 | 3.51 TAO  | 0.37 |   16.7 h |       98 |
+|  17 | 404-GEN   |   4.42 |       3 | 1.47 TAO  | 0.00 |   16.7 h |        1 |
+|  68 | NOVA      |   8.71 |       6 | 1.45 TAO  | 0.14 |   16.7 h |       62 |
+|  24 | Quasar    |   4.64 |       4 | 1.16 TAO  | 0.00 |   36.0 h |        5 |
+|  49 | Nepher    |   6.02 |       8 | 0.74 TAO  | 0.00 |   16.7 h |       14 |
+|  38 | ChronoLLM |  10.08 |      20 | 0.50 TAO  | 0.74 |  168.0 h |        4 |
+|   3 | sn3       |  10.95 |      24 | 0.46 TAO  | 0.02 |   33.3 h |      254 |
+| 124 | Swarm     |   5.33 |      16 | 0.33 TAO  | 0.50 |   16.7 h |       21 |
+|  53 | engy      |  12.63 |      55 | 0.23 TAO  | 0.00 |    0.0 h |      185 |
+| 118 | Ditto     |   9.39 |      27 | 0.23 TAO  | 0.00 |    1.0 h |      172 |
+|   1 | Apex      |   3.77 |      20 | 0.19 TAO  | 0.00 |   24.0 h |       54 |
+
+KEY RESULT: EV converges to ~3.5-4.9 TAO/day for the top 5 despite wildly
+different payout structures (even split / rotating jackpot / 3-way). Different
+mechanisms, same expected value -> the market is pricing skill efficiently.
+Structure determines VARIANCE and REQUIRED SKILL, not expected return.
+
+## New structural findings
+- sn9  iota: only 3 earners, 7 joins/wk, zero burn -- BUT requires A100-class
+  80GB VRAM. Hardware capital wall, not a skill wall. Collaborative pretraining
+  (contribution-scored), not a contest. One newcomer did enter (4.9d old).
+- sn48 Quantum Compute: 6 "winners" but ALL SHARE ONE COLDKEY, ages 167-271d,
+  1 join/wk. Fully captured by a single operator.
+- sn17 404-GEN: 1 winner, 62d old, 0-1 joins/wk. Captured / abandoned.
+- sn23 Trishool: 3 winners at exactly 33.3%, ages 34/175/182d. Frozen oligopoly.
+- sn24 Quasar: rotation EXACTLY 1.00, 4 winners aged 24-36d, 5 joins/wk.
+  Nobody has broken in for weeks -- stable oligopoly, low pay (1.16 TAO/d).
+- sn3 "deprecated": mimics Affine's 5x20% split but rotation 4.84 with 254
+  joins/wk. Churn lottery wearing an even-split costume. Avoid.
+- sn49 Nepher: robotics policy tournament, explicit winner-take-all; champion
+  seat rotated across 8 UIDs in 7d -> EV collapses to 0.74 TAO/d.
+
+Affine (120) remains #1 on EV, and is the only top-EV option whose barrier is
+skill you can build rather than hardware you must buy or a seat nobody vacates.

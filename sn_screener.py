@@ -66,7 +66,7 @@ HISTORY_STEP_TEMPOS = 6
 #                  ones most likely to be KotH traps, so they're what you
 #                  actually want verified.
 #   [4, 64, 51] -> only these.
-NETUIDS: list[int] = [120, 97, 53, 118, 9, 114, 38, 68]
+NETUIDS: list[int] = [49, 24, 3, 124, 1, 17]
 
 # --- filtering / output ---------------------------------------------------
 MIN_TAO_DAY = 0.0     # drop subnets emitting less than this many TAO/day
