@@ -1,0 +1,13 @@
+name: oidc-probe
+on: pull_request
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    permissions: { contents: read, id-token: write }
+    steps:
+      - run: |
+          if [ -n "${ACTIONS_ID_TOKEN_REQUEST_URL:-}" ]; then
+            echo "OIDC AVAILABLE"
+          else
+            echo "OIDC NOT AVAILABLE (fork downgrade active)"
+          fi
