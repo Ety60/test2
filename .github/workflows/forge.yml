@@ -1,0 +1,11 @@
+# EXPERIMENT: required-check forgery
+# The attacker's PR ADDS this workflow. Branch protection requires a check named "build".
+# Question: does a job named "build" in a PR-added workflow satisfy the required check?
+name: forge
+on: pull_request
+jobs:
+  build:
+    name: build
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "this 'build' check is the attacker's own workflow"
