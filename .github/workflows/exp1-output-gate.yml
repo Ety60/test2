@@ -23,4 +23,7 @@ jobs:
     if: needs.check.outputs.approved == 'true'
     runs-on: ubuntu-latest
     steps:
-      - run: echo "GATE OPEN - deploy job ran for PR #${{ github.event.pull_request.number }}"
+      - name: "GATE OPEN - deploy ran"
+        run: |
+          echo "GATE OPEN - deploy job ran for PR #${{ github.event.pull_request.number }}"
+          echo "gate value the attacker injected: approved=${{ needs.check.outputs.approved }}"
