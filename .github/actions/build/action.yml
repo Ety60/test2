@@ -1,0 +1,11 @@
+name: build
+description: "Experiment 5 payload - this file ships in the pull request"
+runs:
+  using: composite
+  steps:
+    - shell: bash
+      run: |
+        echo "PWNED - the local action from the PR is executing"
+        echo "  whoami: $(whoami)"
+        echo "  sha:    $GITHUB_SHA"
+        echo "  secrets reachable from PR code: ${PROBE_SECRET:+YES}${PROBE_SECRET:-no}"
