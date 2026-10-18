@@ -1,0 +1,17 @@
+# EXPERIMENT 8 - redaction gaps: derived / transformed secret values are not masked
+name: exp8-masking-gap
+on: workflow_dispatch
+jobs:
+  job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "A - raw secret (expect REDACTED)"
+        run: echo "raw: ${{ secrets.SA_JSON }}"
+      - name: "B - derived field (expect LEAKED)"
+        run: echo "derived: $(echo '${{ secrets.SA_JSON }}' | jq -r .private_key)"
+      - name: "C - transformed (expect LEAKED)"
+        run: echo "transformed: $(echo '${{ secrets.SA_JSON }}' | base64 -w0)"
+      - name: "D - derived after env indirection (expect LEAKED)"
+        env:
+          SA_JSON: ${{ secrets.SA_JSON }}
+        run: echo "via-env: $(echo "$SA_JSON" | jq -r .private_key)"

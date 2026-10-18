@@ -1,0 +1,22 @@
+# EXPERIMENT 4 - inputs.* is an injection sink scanners do not model
+name: exp4-inputs-sink
+on:
+  workflow_dispatch:
+    inputs:
+      reason:
+        description: reason for the deploy
+        required: true
+        default: routine
+jobs:
+  job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Pattern A - env-var indirection (what GitHub recommends)"
+        env:
+          REASON: ${{ inputs.reason }}
+        run: |
+          echo "REASON=$REASON" >> "$GITHUB_ENV"
+          echo "A: REASON=$REASON"
+      - name: "Pattern B - direct interpolation into run:"
+        run: |
+          echo "deploying: ${{ inputs.reason }}"

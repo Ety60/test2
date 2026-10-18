@@ -1,0 +1,14 @@
+# EXPERIMENT 5 - pwn request with zero shell steps: uses: ./ on untrusted checkout
+name: exp5-local-action
+on: pull_request_target
+jobs:
+  job:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+      - name: "Run the repo's own build action"
+        uses: ./.github/actions/build
+        env:
+          PROBE_SECRET: ${{ secrets.SA_JSON }}

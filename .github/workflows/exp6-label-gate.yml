@@ -1,0 +1,18 @@
+# EXPERIMENT 6 - approval gates that weaker roles / later pushes can satisfy (label gate + TOCTOU)
+name: exp6-label-gate
+on:
+  pull_request_target:
+    types: [opened, synchronize, labeled]
+jobs:
+  privileged:
+    if: contains(github.event.pull_request.labels.*.name, 'safe-to-test')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+      - run: |
+          echo "PRIVILEGED JOB RAN"
+          echo "  event         = ${{ github.event_name }}"
+          echo "  triggered by  = ${{ github.event.sender.login }}"
+          echo "  executing sha = ${{ github.event.pull_request.head.sha }}"

@@ -1,0 +1,26 @@
+# EXPERIMENT 1 - $GITHUB_OUTPUT heredoc delimiter collision -> security-gate poisoning
+name: exp1-output-gate
+on: pull_request
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    outputs:
+      approved: ${{ steps.calc.outputs.approved }}
+    steps:
+      - id: calc
+        env:
+          BODY: ${{ github.event.pull_request.body }}
+        run: |
+          {
+            echo "approved<<EOF"
+            printf '%s\n' "$BODY"
+            echo "EOF"
+          } >> "$GITHUB_OUTPUT"
+          echo "--- raw outputs file ---"
+          cat "$GITHUB_OUTPUT"
+  deploy:
+    needs: check
+    if: needs.check.outputs.approved == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "GATE OPEN - deploy job ran for PR #${{ github.event.pull_request.number }}"

@@ -1,0 +1,24 @@
+# EXPERIMENT 2 - newline injection into $GITHUB_ENV via the RECOMMENDED mitigation pattern
+# -> arbitrary env vars in later steps -> RCE through BASH_ENV
+name: exp2-env-injection
+on: pull_request
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: "Step 2 - the 'safe' pattern GitHub recommends"
+        env:
+          BODY: ${{ github.event.pull_request.body }}
+        run: |
+          {
+            echo "BODY<<EOF"
+            printf '%s\n' "$BODY"
+            echo "EOF"
+          } >> "$GITHUB_ENV"
+      - name: "Step 3 - innocent-looking follow-up"
+        run: |
+          echo "BODY=$BODY"
+          echo "BASH_ENV=${BASH_ENV:-<unset>}"
+          echo "approved=${approved:-<unset>}"
+          env | sort | grep -E '^(BASH_ENV|approved|BODY)=' || true
