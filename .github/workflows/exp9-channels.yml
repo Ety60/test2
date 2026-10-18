@@ -20,7 +20,7 @@ jobs:
           S: ${{ secrets.SA_JSON }}
         with:
           script: |
-            const { data: cr } = await github.rest.checkRuns.create({
+            const { data: cr } = await github.rest.checks.create({
               owner: context.repo.owner,
               repo: context.repo.repo,
               head_sha: context.sha,
