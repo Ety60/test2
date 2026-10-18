@@ -1,0 +1,43 @@
+# EXPERIMENT 9 - secret masking coverage across output channels
+name: exp9-channels
+on: workflow_dispatch
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "A - secret into a file, uploaded as artifact"
+        run: |
+          mkdir -p out
+          echo "${{ secrets.SA_JSON }}" > out/raw-secret.txt
+          echo "$(echo '${{ secrets.SA_JSON }}' | base64 -w0)" > out/derived.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: leak-probe
+          path: out/
+      - name: "B - secret into check-run output (public API surface)"
+        uses: actions/github-script@v7
+        env:
+          S: ${{ secrets.SA_JSON }}
+        with:
+          script: |
+            const { data: cr } = await github.rest.checkRuns.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              head_sha: context.sha,
+              name: 'leak-probe-check',
+              conclusion: 'success',
+              completed_at: new Date().toISOString(),
+              output: {
+                title: 'probe',
+                summary: 'summary-field: ' + process.env.S,
+                text: 'text-field: ' + Buffer.from(process.env.S).toString('base64')
+              }
+            })
+            core.info('CHECKRUN_URL=' + cr.html_url)
+      - name: "C - secret into step summary"
+        run: |
+          {
+            echo "## summary probe"
+            echo "raw: ${{ secrets.SA_JSON }}"
+            echo "derived: $(echo '${{ secrets.SA_JSON }}' | base64 -w0)"
+          } >> "$GITHUB_STEP_SUMMARY"
