@@ -1,0 +1,138 @@
+name: Exp10 preload RCE (exact shape)
+
+# Faithful cut-down of the Claude Code Review workflow under audit:
+#   triage gate (fork guard + author_association) -> review job ->
+#   install-before-checkout -> PR-head checkout ->
+#   exec a bun binary with BUN_CONFIG_FILE=/dev/null from the PR tree.
+#
+# Differences from the original (all in the non-security direction):
+#   - review-cli replaced by a tiny compiled bun binary ("revcli") built
+#     in a scratch dir before checkout. If anything, the real review-cli
+#     (larger, more imports) is MORE exposed, not less.
+#   - No secrets are passed to the review job at all, so the worst case
+#     here is a marker file proving preload executed. On the real
+#     workflow the same preload would inherit GITHUB_TOKEN + LLM keys.
+#   - No LLM calls, no comments posted.
+#
+# SUCCESS = attacker-controlled preload.ts executes after the PR-head
+# checkout despite BUN_CONFIG_FILE=/dev/null.
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+
+  issue_comment:
+    types: [created]
+  pull_request_review_comment:
+    types: [created]
+
+permissions: {}
+
+jobs:
+  triage:
+    name: Triage
+    runs-on: ubuntu-latest
+    if: |
+      (github.event_name == 'pull_request'
+        && !github.event.pull_request.head.repo.fork
+        && (github.event.pull_request.draft == false
+            || github.event.action == 'ready_for_review')) ||
+      (github.event_name == 'issue_comment'
+        && github.event.issue.pull_request != null
+        && contains(github.event.comment.body, '@request-review-test')
+        && github.event.comment.user.type != 'Bot'
+        && contains(fromJSON('["OWNER","MEMBER","COLLABORATOR"]'), github.event.comment.author_association)) ||
+      (github.event_name == 'pull_request_review_comment'
+        && !github.event.pull_request.head.repo.fork
+        && contains(github.event.comment.body, '@request-review-test')
+        && github.event.comment.user.type != 'Bot'
+        && contains(fromJSON('["OWNER","MEMBER","COLLABORATOR"]'), github.event.comment.author_association))
+    permissions:
+      contents: read
+    outputs:
+      run: ${{ steps.gate.outputs.run }}
+      pr_number: ${{ steps.gate.outputs.pr_number }}
+    steps:
+      - name: Resolve PR number
+        id: gate
+        run: |
+          set -euo pipefail
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            echo "pr_number=${{ github.event.pull_request.number }}" >> "$GITHUB_OUTPUT"
+          else
+            echo "pr_number=${{ github.event.issue.number }}" >> "$GITHUB_OUTPUT"
+          fi
+          echo "run=true" >> "$GITHUB_OUTPUT"
+
+  review:
+    name: Review
+    needs: triage
+    if: needs.triage.outputs.run == 'true'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: read
+    steps:
+      - uses: oven-sh/setup-bun@0c5077e51419868618aeaa5fe8019c62421857d6 # v2.2.0
+        with:
+          bun-version: '1.3.13'
+
+      # Install BEFORE any checkout: build the stand-in CLI binary from a
+      # scratch dir so no repo content can steer it.
+      - name: Build stand-in CLI binary
+        id: install
+        run: |
+          set -euo pipefail
+          install_dir="$RUNNER_TEMP/revcli-install"
+          mkdir -p "$install_dir"
+          cd "$install_dir"
+          cat > revcli.ts <<'EOF'
+          console.log("revcli ran OK");
+          EOF
+          bun build --compile ./revcli.ts --outfile revcli
+          echo "bin=$install_dir/revcli" >> "$GITHUB_OUTPUT"
+
+      # Authoritative fork guard for issue_comment / dispatch-shaped paths.
+      - name: Refuse fork PRs
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          PR_NUMBER: ${{ needs.triage.outputs.pr_number }}
+        run: |
+          set -euo pipefail
+          HEAD_REPO=$(gh api "repos/$GH_REPO/pulls/$PR_NUMBER" --jq '.head.repo.full_name // ""')
+          if [ -z "$HEAD_REPO" ]; then
+            echo "::error::Could not resolve head repo for PR #$PR_NUMBER. Refusing."
+            exit 1
+          fi
+          if [ "$HEAD_REPO" != "$GH_REPO" ]; then
+            echo "::error::Refusing fork PR (head=$HEAD_REPO)."
+            exit 1
+          fi
+          echo "same-repo PR confirmed (head=$HEAD_REPO)"
+
+      # The ONLY checkout of PR-author content, pinned to the PR head.
+      - name: Checkout PR head
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          fetch-depth: 1
+          persist-credentials: false
+          ref: refs/pull/${{ needs.triage.outputs.pr_number }}/head
+
+      # Exact step under test: exec the bun binary from the PR tree with
+      # the workflow's claimed mitigation.
+      - name: Run CLI (BUN_CONFIG_FILE=/dev/null)
+        env:
+          REVIEW_CLI: ${{ steps.install.outputs.bin }}
+          BUN_CONFIG_FILE: /dev/null
+        run: |
+          "$REVIEW_CLI" triage --from-github-actions 2>&1 || true
+          echo "--- marker check ---"
+          if [ -f ./PWNED_PRELOAD ]; then
+            echo "::error::PRELOAD EXECUTED: ./PWNED_PRELOAD exists. BUN_CONFIG_FILE=/dev/null did not stop it."
+            ls -la ./PWNED_PRELOAD
+            cat ./PWNED_PRELOAD
+            exit 1
+          else
+            echo "preload did NOT execute (marker absent)"
+          fi
