@@ -1,0 +1,32 @@
+{
+  "data": {
+    "user": [
+      null,
+      {
+        "class": "App\\Models\\User",
+        "key": 137,
+        "s": "mdl"
+      }
+    ],
+    "paginators": [
+      {
+        "page": 1
+      },
+      {
+        "s": "arr"
+      }
+    ]
+  },
+  "memo": {
+    "id": "dp1DMc3ZwWnSN636YotV",
+    "name": "user.notifications",
+    "path": "user/notifications",
+    "method": "GET",
+    "children": [],
+    "scripts": [],
+    "assets": [],
+    "errors": [],
+    "locale": "en"
+  },
+  "checksum": "5e132564ec407cc589989514687ffd5cc47a86dd3f1fcdc44e65543c13f5c889"
+}

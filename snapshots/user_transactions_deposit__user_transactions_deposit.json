@@ -1,0 +1,24 @@
+{
+  "data": {
+    "paginators": [
+      {
+        "page": 1
+      },
+      {
+        "s": "arr"
+      }
+    ]
+  },
+  "memo": {
+    "id": "tmutpWHWBH2nkbO9zOUK",
+    "name": "user.transactions.deposit",
+    "path": "user/transactions/deposit",
+    "method": "GET",
+    "children": [],
+    "scripts": [],
+    "assets": [],
+    "errors": [],
+    "locale": "en"
+  },
+  "checksum": "8983b73a7c6fca551f6497210fbcf7a4cce890a4905fa412e2f02a79ad1a5b15"
+}

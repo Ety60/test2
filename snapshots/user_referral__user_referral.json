@@ -1,0 +1,74 @@
+{
+  "data": {
+    "viewRef": false,
+    "refLevel": null,
+    "children": null,
+    "referrals": null,
+    "totalDeposit": 0,
+    "totalAmountInPlans": 0,
+    "totalProfit": 0,
+    "user": null,
+    "commision": 10,
+    "level": "Direct level",
+    "downlinesIds": [
+      [],
+      {
+        "s": "arr"
+      }
+    ],
+    "directIDs": [
+      [],
+      {
+        "s": "arr"
+      }
+    ],
+    "level1IDs": [
+      [],
+      {
+        "s": "arr"
+      }
+    ],
+    "level2IDs": [
+      [],
+      {
+        "s": "arr"
+      }
+    ],
+    "level3IDs": [
+      [],
+      {
+        "s": "arr"
+      }
+    ],
+    "level4IDs": [
+      [],
+      {
+        "s": "arr"
+      }
+    ],
+    "level5IDs": [
+      [],
+      {
+        "s": "arr"
+      }
+    ],
+    "paginators": [
+      [],
+      {
+        "s": "arr"
+      }
+    ]
+  },
+  "memo": {
+    "id": "ayRikX2ISJhA9b7TDNO1",
+    "name": "user.referral",
+    "path": "user/referral",
+    "method": "GET",
+    "children": [],
+    "scripts": [],
+    "assets": [],
+    "errors": [],
+    "locale": "en"
+  },
+  "checksum": "0110426e4067f8a92f4f6cc1ee77881f9030f87312361955b75f0f17b21bc4bf"
+}

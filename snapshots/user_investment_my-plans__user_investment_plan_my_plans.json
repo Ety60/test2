@@ -1,0 +1,17 @@
+{
+  "data": {
+    "sort_value": "All"
+  },
+  "memo": {
+    "id": "Kub5K8M0WmQKy2jGMO2K",
+    "name": "user.investment-plan.my-plans",
+    "path": "user/investment/my-plans",
+    "method": "GET",
+    "children": [],
+    "scripts": [],
+    "assets": [],
+    "errors": [],
+    "locale": "en"
+  },
+  "checksum": "78c6706dc20715fb553656d926746a7cfa06898a34ddc151805aa6a2d7f973e6"
+}

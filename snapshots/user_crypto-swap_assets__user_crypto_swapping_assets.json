@@ -1,0 +1,18 @@
+{
+  "data": {
+    "search": "",
+    "estimated_balance": 0
+  },
+  "memo": {
+    "id": "E9nCcbNUg1ESkU5BoLUI",
+    "name": "user.crypto-swapping.assets",
+    "path": "user/crypto-swap/assets",
+    "method": "GET",
+    "children": [],
+    "scripts": [],
+    "assets": [],
+    "errors": [],
+    "locale": "en"
+  },
+  "checksum": "afb39ff303870aba9d7395ddf3d4837b182f6f5eb1bdee4fbe8b8dfb009655bf"
+}

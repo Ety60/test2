@@ -1,0 +1,3 @@
+cookies_*.txt
+__pycache__/
+*.pyc

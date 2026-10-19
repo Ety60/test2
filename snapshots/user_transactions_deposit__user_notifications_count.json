@@ -1,0 +1,15 @@
+{
+  "data": [],
+  "memo": {
+    "id": "vHwl6mvSGSzfwAPYGYNI",
+    "name": "user.notifications-count",
+    "path": "user/transactions/deposit",
+    "method": "GET",
+    "children": [],
+    "scripts": [],
+    "assets": [],
+    "errors": [],
+    "locale": "en"
+  },
+  "checksum": "df239779e5cd7f23c644a068bd8533ddaaf9b97f23f0164f9d46f4d31d421f57"
+}

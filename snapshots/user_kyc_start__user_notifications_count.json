@@ -1,0 +1,15 @@
+{
+  "data": [],
+  "memo": {
+    "id": "Tl6JVLTPGybjwTLKnSBk",
+    "name": "user.notifications-count",
+    "path": "user/kyc/start",
+    "method": "GET",
+    "children": [],
+    "scripts": [],
+    "assets": [],
+    "errors": [],
+    "locale": "en"
+  },
+  "checksum": "32ba458b71da4d50f0f88a8f914d04f458317e0f33729d82da43a094b579900e"
+}

@@ -1,0 +1,15 @@
+{
+  "data": [],
+  "memo": {
+    "id": "utp5VTzJCZuc8yVYZMWb",
+    "name": "user.notifications-count",
+    "path": "user/crypto-swap/convert/BTC",
+    "method": "GET",
+    "children": [],
+    "scripts": [],
+    "assets": [],
+    "errors": [],
+    "locale": "en"
+  },
+  "checksum": "1a5ba13305e484cdbac18fd811c7158e206a8f78260c8132ac59d654aebd3315"
+}

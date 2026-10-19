@@ -1,0 +1,23 @@
+{
+  "data": {
+    "showingQrCode": false,
+    "showingConfirmation": false,
+    "showingRecoveryCodes": false,
+    "code": null,
+    "confirmingPassword": false,
+    "confirmableId": null,
+    "confirmablePassword": ""
+  },
+  "memo": {
+    "id": "3UuBgKmua3l9RuFh7CrT",
+    "name": "profile.two-factor-authentication-form",
+    "path": "user/account-settings",
+    "method": "GET",
+    "children": [],
+    "scripts": [],
+    "assets": [],
+    "errors": [],
+    "locale": "en"
+  },
+  "checksum": "9ca2300c41e1474a0421f612ef4cff5c23dac3e4042107e31135f7df8e92ec6e"
+}

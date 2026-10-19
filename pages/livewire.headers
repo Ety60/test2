@@ -1,0 +1,12 @@
+HTTP/2 200 
+x-powered-by: PHP/8.2.29
+content-type: application/javascript; charset=utf-8
+expires: Sun, 25 Apr 2027 12:36:05 GMT
+cache-control: max-age=31536000, public
+last-modified: Mon, 19 Aug 2024 07:52:18 GMT
+accept-ranges: bytes
+etag: "1-1777120565;;;"
+x-litespeed-cache: hit
+date: Tue, 28 Apr 2026 16:43:19 GMT
+alt-svc: h3=":443"; ma=2592000, h3-29=":443"; ma=2592000, h3-Q050=":443"; ma=2592000, h3-Q046=":443"; ma=2592000, h3-Q043=":443"; ma=2592000, quic=":443"; ma=2592000; v="43,46"
+

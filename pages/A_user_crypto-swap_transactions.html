@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script type="text/javascript" src="https://js.stripe.com/v3/"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="csrf-token" content="t6FvMDJan92FLaB7dwaCzFh7gj5kiIQ5sRE7SGV3">
+    <meta name="locale" content="en">
+    <meta name="content-language" content="en">
+    <title>GainLedge Capital | Swap crypto transactions </title>
+    <link rel="icon" href="https://gainledgecapital.com/storage/settings/YTT3hmc1WTvHG9wZQljCAnPv98W3mMEVigzSEuDI.png" type="image/png" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/themes/dark.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdn.jsdelivr.net/npm/pako@2.1.0/dist/pako.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Custom Scrollbar Styling */
+        * {
+            scrollbar-width: thin;
+            /* For Firefox */
+            scrollbar-color: #2FE6DE/20 #1A1428;
+            /* Thumb color and track color */
+        }
+
+        /* Webkit Browsers (Chrome, Safari, newer versions of Opera) */
+        *::-webkit-scrollbar {
+            width: 8px;
+            /* Thin scrollbar */
+        }
+
+        *::-webkit-scrollbar-track {
+            background: #1A1428;
+            /* Dark background for the track */
+            border-radius: 10px;
+        }
+
+        *::-webkit-scrollbar-thumb {
+            background-color: rgba(47, 230, 222, 0.2);
+            /* Teal color with opacity */
+            border-radius: 10px;
+            border: 2px solid transparent;
+            background-clip: content-box;
+        }
+
+        *::-webkit-scrollbar-thumb:hover {
+            background-color: rgba(47, 230, 222, 0.4);
+            /* Slightly more opaque on hover */
+        }
+
+        .opacity-0 {
+            opacity: 0;
+        }
+
+        .opacity-100 {
+            opacity: 1;
+        }
+
+        .transition-opacity {
+            transition-property: opacity;
+        }
+
+        .duration-300 {
+            transition-duration: 300ms;
+        }
+    </style>
+
+    <!-- Pusher -->
+ <script src="https://js.pusher.com/8.2.0/pusher.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/laravel-echo@1.15.3/dist/echo.iife.js"></script>
+<!-- Smartsupp Live Chat script -->
+<script type="text/javascript">
+var _smartsupp = _smartsupp || {};
+_smartsupp.key = '9e4132c4c292603304d17ae58e303ca07c5ee345';
+_smartsupp.offsetX = 30; // move along the X axis by 100 pixels
+_smartsupp.offsetY = 100; // move along the Y axis by 100 pixels
+window.smartsupp||(function(d) {
+  var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
+  s=d.getElementsByTagName('script')[0];c=d.createElement('script');
+  c.type='text/javascript';c.charset='utf-8';c.async=true;
+  c.src='https://www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
+})(document);
+</script>
+<noscript> Powered by <a href=“https://www.smartsupp.com” target=“_blank”>Smartsupp</a></noscript>
+
+<!-- Echo Configuration -->
+<script>
+    window.Laravel = {"user":{"id":136,"name":"Joske Meulemans","username":"joske","email":"joskemeulemans@hotmail.com","email_verified_at":"2026-04-28T20:55:47.000000Z","two_factor_confirmed_at":null,"customer_status":null,"assigned_to":null,"date_of_birth":null,"address":null,"country":"France","phone_number":"0685165942","bank_name":null,"account_name":null,"account_number":null,"swift_code":null,"btc_address":null,"eth_address":null,"ltc_address":null,"usdt_address":null,"account_bal":"0.00","roi":"0.00","bonus":"0.00","ref_bonus":"0.00","received_signup_bonus":false,"trade_mode":true,"reffered_by":null,"refferal_link":"https:\/\/gainledgecapital.com\/ref\/joske","account_verify":null,"status":"active","withdrawal_otp":null,"withdrawal_otp_expired_at":null,"can_withdraw":true,"can_deposit":true,"can_trade":true,"email_preference":null,"current_team_id":null,"profile_photo_path":null,"is_admin":false,"admin_type":null,"token_2fa_expiry":null,"enable_2fa":false,"admin_two_factor_code":null,"pass_two_factor":true,"has_seen_onboarding":true,"timezone":null,"created_at":"2026-04-28T15:55:47.000000Z","updated_at":"2026-04-28T16:49:57.000000Z","total_trades":"0","total_wins":"0","total_losses":"0","win_rate":"0.00","trader_type":null,"is_trader":"0","copy_trade_fee":null,"trader_description":null,"is_online":true,"last_seen":"2026-04-28T16:49:57.530852Z"},"pusherKey":"e10972754f11b36a3ddd","pusherCluster":"mt1"};
+
+    // Initialize Laravel Echo
+    window.Echo = new Echo({
+        broadcaster: 'pusher',
+        key: window.Laravel.pusherKey,
+        cluster: window.Laravel.pusherCluster,
+        forceTLS: true
+    });
+</script>
+
+    
+        <!-- Livewire Styles --><style >[wire\:loading][wire\:loading], [wire\:loading\.delay][wire\:loading\.delay], [wire\:loading\.inline-block][wire\:loading\.inline-block], [wire\:loading\.inline][wire\:loading\.inline], [wire\:loading\.block][wire\:loading\.block], [wire\:loading\.flex][wire\:loading\.flex], [wire\:loading\.table][wire\:loading\.table], [wire\:loading\.grid][wire\:loading\.grid], [wire\:loading\.inline-flex][wire\:loading\.inline-flex] {display: none;}[wire\:loading\.delay\.none][wire\:loading\.delay\.none], [wire\:loading\.delay\.shortest][wire\:loading\.delay\.shortest], [wire\:loading\.delay\.shorter][wire\:loading\.delay\.shorter], [wire\:loading\.delay\.short][wire\:loading\.delay\.short], [wire\:loading\.delay\.default][wire\:loading\.delay\.default], [wire\:loading\.delay\.long][wire\:loading\.delay\.long], [wire\:loading\.delay\.longer][wire\:loading\.delay\.longer], [wire\:loading\.delay\.longest][wire\:loading\.delay\.longest] {display: none;}[wire\:offline][wire\:offline] {display: none;}[wire\:dirty]:not(textarea):not(input):not(select) {display: none;}:root {--livewire-progress-bar-color: #ffffff;}[x-cloak] {display: none !important;}</style>
+</head>
+
+<body class="bg-[#0A0714] text-white min-h-screen">
+    <header class="w-full flex items-center justify-between p-4 bg-[#0F0A1F] border-b border-gray-800/50">
+    
+    <div class="flex items-center gap-4">
+        <img src="https://gainledgecapital.com/storage/settings/gOaNdy8cB7lh1Yw89vdQ2YWVHCGdgzHyF6dA50yU.png" alt="GainLedge Capital" class="h-12">
+    </div>
+
+    
+    <div class="flex items-center gap-2">
+        
+<div class="relative" id="languageDropdown">
+    <button class="flex items-center gap-2 bg-[#1A1428] rounded-xl px-3 py-2 text-sm text-gray-400 hover:text-gray-300 transition-colors">
+                <span class="mr-1">&#x1F1FA;&#x1F1F8;</span>
+        EN
+        <i class="fas fa-chevron-down w-4 h-4"></i>
+    </button>
+    <div id="languageMenu" 
+        class="absolute right-0 mt-2 w-48 bg-[#1A1428] rounded-xl border border-gray-800/50 shadow-xl overflow-hidden hidden z-50">
+                    <a href="https://gainledgecapital.com/language/en" 
+                class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-400 hover:bg-[#2A243B] hover:text-gray-300 transition-colors">
+                <span>&#x1F1FA;&#x1F1F8;</span>
+                English
+            </a>
+                    <a href="https://gainledgecapital.com/language/es" 
+                class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-400 hover:bg-[#2A243B] hover:text-gray-300 transition-colors">
+                <span>&#x1F1EA;&#x1F1F8;</span>
+                Spanish
+            </a>
+                    <a href="https://gainledgecapital.com/language/fr" 
+                class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-400 hover:bg-[#2A243B] hover:text-gray-300 transition-colors">
+                <span>&#x1F1EB;&#x1F1F7;</span>
+                French
+            </a>
+                    <a href="https://gainledgecapital.com/language/de" 
+                class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-400 hover:bg-[#2A243B] hover:text-gray-300 transition-colors">
+                <span>&#x1F1E9;&#x1F1EA;</span>
+                German
+            </a>
+                    <a href="https://gainledgecapital.com/language/ar" 
+                class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-400 hover:bg-[#2A243B] hover:text-gray-300 transition-colors">
+                <span>&#x1F1F8;&#x1F1E6;</span>
+                Arabic
+            </a>
+                    <a href="https://gainledgecapital.com/language/pt" 
+                class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-400 hover:bg-[#2A243B] hover:text-gray-300 transition-colors">
+                <span>&#x1F1F5;&#x1F1F9;</span>
+                Portuguese
+            </a>
+                    <a href="https://gainledgecapital.com/language/fa" 
+                class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-400 hover:bg-[#2A243B] hover:text-gray-300 transition-colors">
+                <span>&#x1F1EE;&#x1F1F7;</span>
+                Persian
+            </a>
+                    <a href="https://gainledgecapital.com/language/zh" 
+                class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-400 hover:bg-[#2A243B] hover:text-gray-300 transition-colors">
+                <span>&#x1F1E8;&#x1F1F3;</span>
+                Chinese
+            </a>
+                    <a href="https://gainledgecapital.com/language/hi" 
+                class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-400 hover:bg-[#2A243B] hover:text-gray-300 transition-colors">
+                <span>&#x1F1EE;&#x1F1F3;</span>
+                Hindi
+            </a>
+                    <a href="https://gainledgecapital.com/language/ru" 
+                class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-400 hover:bg-[#2A243B] hover:text-gray-300 transition-colors">
+                <span>&#x1F1F7;&#x1F1FA;</span>
+                Russian
+            </a>
+            </div>
+</div>
+
+        
+        <div class="relative" id="reportsDropdown">
+            <button class="p-2 text-gray-400 hover:text-gray-300 transition-colors rounded-xl hover:bg-[#1A1428]">
+                <i class="fas fa-file-alt w-5 h-5"></i>
+            </button>
+            <div id="reportsMenu" 
+                class="absolute right-0 mt-2 w-64 bg-[#1A1428] rounded-xl border border-gray-800/50 shadow-xl overflow-hidden hidden z-50">
+                <div class="p-4">
+                    <h3 class="text-sm font-medium text-gray-300 mb-2">Annual Reports</h3>
+                    <div class="space-y-1">
+                                                    <p class="text-sm text-gray-400 px-3 py-2">No reports available</p>
+                                            </div>
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="relative" id="notificationDropdown">
+            <button class="relative p-2 text-gray-400 hover:text-gray-300 transition-colors rounded-xl hover:bg-[#1A1428]">
+                <i class="fas fa-bell w-5 h-5"></i>
+                <div wire:snapshot="{&quot;data&quot;:[],&quot;memo&quot;:{&quot;id&quot;:&quot;IqeIvZSimZAUW92tyIbG&quot;,&quot;name&quot;:&quot;user.notifications-count&quot;,&quot;path&quot;:&quot;user\/crypto-swap\/transactions&quot;,&quot;method&quot;:&quot;GET&quot;,&quot;children&quot;:[],&quot;scripts&quot;:[],&quot;assets&quot;:[],&quot;errors&quot;:[],&quot;locale&quot;:&quot;en&quot;},&quot;checksum&quot;:&quot;e2ca2dabc343e7775ebf44be1eb5e8247c09e6954286c045b93ac5ce21efaa47&quot;}" wire:effects="{&quot;listeners&quot;:[&quot;updateNotification&quot;]}" wire:id="IqeIvZSimZAUW92tyIbG">
+<!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->
+</div>            </button>
+            <div id="notificationMenu" 
+                class="absolute right-0 mt-2 w-80 bg-[#1A1428] rounded-xl border border-gray-800/50 shadow-xl overflow-hidden hidden z-50">
+                <div class="p-4">
+                    <div class="space-y-4">
+                                                    <div class="text-center py-6">
+                                <div class="w-12 h-12 mx-auto mb-3 bg-gray-800/50 rounded-xl flex items-center justify-center">
+                                    <i class="fas fa-bell-slash text-gray-400 w-6 h-6"></i>
+                                </div>
+                                <p class="text-sm text-gray-400">No new notifications</p>
+                            </div>
+                                            </div>
+
+                    
+                                    </div>
+            </div>
+        </div>
+
+        
+        <div class="relative" id="userDropdown">
+            <button class="p-2 text-gray-400 hover:text-gray-300 transition-colors rounded-xl hover:bg-[#1A1428]">
+                <i class="fas fa-user w-5 h-5"></i>
+            </button>
+            <div id="userMenu" 
+                class="absolute right-0 mt-2 w-64 bg-[#1A1428] rounded-xl border border-gray-800/50 shadow-xl overflow-hidden hidden z-50">
+                <div class="p-4 border-b border-gray-800/50">
+                    <h3 class="font-medium truncate">Joske Meulemans</h3>
+                    <p class="text-sm text-gray-400 truncate">joskemeulemans@hotmail.com</p>
+                </div>
+                
+                
+                                <div class="p-4 border-b border-gray-800/50 bg-[#2A243B]/50">
+                    <div class="flex items-center justify-between gap-2">
+                        <span class="text-sm text-gray-400">Account Status</span>
+                                                    <a href="https://gainledgecapital.com/user/kyc/start"
+                                 
+                                class="text-xs font-medium px-2 py-1 bg-[#2FE6DE]/10 text-[#2FE6DE] rounded-lg hover:bg-[#2FE6DE]/20 transition-colors">
+                                Verify Now
+                            </a>
+                                            </div>
+                </div>
+                
+                <div class="p-2">
+                    <a href="https://gainledgecapital.com/user/account-settings" 
+                                                class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-400 hover:text-gray-300 rounded-lg hover:bg-[#2A243B] transition-colors">
+                        <i class="fas fa-cog w-4 h-4"></i>
+                        Settings
+                    </a>
+                    <form action="https://gainledgecapital.com/logout" method="POST">
+                        <input type="hidden" name="_token" value="t6FvMDJan92FLaB7dwaCzFh7gj5kiIQ5sRE7SGV3" autocomplete="off">                        <button type="submit" 
+                            class="w-full flex items-center gap-3 px-4 py-2.5 text-sm text-gray-400 hover:text-gray-300 rounded-lg hover:bg-[#2A243B] transition-colors">
+                            <i class="fas fa-sign-out-alt w-4 h-4"></i>
+                            Logout
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<script>
+    // Dropdown toggles
+    function setupDropdown(triggerId, menuId) {
+        const trigger = document.getElementById(triggerId);
+        const menu = document.getElementById(menuId);
+        
+        if (trigger && menu) {
+            trigger.addEventListener('click', (e) => {
+                e.stopPropagation();
+                menu.classList.toggle('hidden');
+            });
+
+            document.addEventListener('click', () => {
+                menu.classList.add('hidden');
+            });
+        }
+    }
+
+    // Setup all dropdowns
+    document.addEventListener('DOMContentLoaded', function() {
+        setupDropdown('reportsDropdown', 'reportsMenu');
+    });
+    
+</script>
+    <div class="flex">
+        <aside class="hidden md:flex flex-col w-72 bg-[#0F0A1F] border-r border-gray-800/50 min-h-screen overflow-y-auto">
+    
+    <div class="p-6 border-b border-gray-800/50">
+        <div class="flex items-center gap-4">
+            <div class="w-12 h-12 rounded-xl bg-[#1A1428] flex-shrink-0 overflow-hidden">
+                <img 
+                    src="https://gainledgecapital.com/dash/images/avatar.svg"
+                    alt="Joske Meulemans"
+                    class="w-full h-full object-cover">
+            </div>
+            <div class="flex-1 min-w-0">
+                <h3 class="font-medium truncate">Joske Meulemans</h3>
+                <p class="text-sm text-gray-400 truncate">joskemeulemans@hotmail.com</p>
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="p-4 flex-1">
+        <nav class="space-y-1">
+            
+            <div class="space-y-1 mb-6">
+                
+                <a href="https://gainledgecapital.com/user/dashboard" 
+                                        class="flex items-center gap-3 px-4 py-2.5 rounded-xl transition-all text-gray-400 hover:bg-[#1A1428] hover:text-gray-100">
+                    <i class="fas fa-th-large w-5 h-5"></i>
+                   <span>Dashboard</span>
+                </a>
+
+                
+                <div class="mt-6">
+                    <p class="px-4 py-2 text-xs font-medium text-gray-400 uppercase mb-2">Finance Management</p>
+                    
+                                        <a href="https://gainledgecapital.com/user/deposit" 
+                                                class="flex items-center gap-3 px-4 py-2.5 rounded-xl transition-all text-gray-400 hover:bg-[#1A1428] hover:text-gray-100">
+                        <i class="fas fa-arrow-down w-5 h-5"></i>
+                        <span>Deposit</span>
+                    </a>
+                    
+                                        <a href="https://gainledgecapital.com/user/withdraw/request" 
+                                                class="flex items-center gap-3 px-4 py-2.5 rounded-xl transition-all text-gray-400 hover:bg-[#1A1428] hover:text-gray-100">
+                        <i class="fas fa-arrow-up w-5 h-5"></i>
+                        <span>Withdraw</span>
+                    </a>
+                    
+                                        <a href="https://gainledgecapital.com/user/transactions/deposit" 
+                                                class="flex items-center gap-3 px-4 py-2.5 rounded-xl transition-all text-gray-400 hover:bg-[#1A1428] hover:text-gray-100">
+                        <i class="fas fa-receipt w-5 h-5"></i>
+                        <span>Transactions</span>
+                    </a>
+                    
+                                        <a href="https://gainledgecapital.com/user/transfer-fund" 
+                                                class="flex items-center gap-3 px-4 py-2.5 rounded-xl transition-all text-gray-400 hover:bg-[#1A1428] hover:text-gray-100">
+                        <i class="fas fa-exchange-alt w-5 h-5"></i>
+                        <span>Transfer Funds</span>
+                    </a>
+                                    </div>
+
+                
+                <div class="mt-6">
+                    <p class="px-4 py-2 text-xs font-medium text-gray-400 uppercase mb-2">Trading &amp; Investments</p>
+
+                                        <div x-data="{ open: false }">
+                        <button @click="open = !open" 
+                            class="flex items-center justify-between w-full px-4 py-2.5 rounded-xl transition-all"
+                            :class="{'bg-gradient-to-r from-[#2FE6DE]/10 to-transparent text-[#2FE6DE]': open, 'text-gray-400 hover:bg-[#1A1428] hover:text-gray-100': !open}">
+                            <div class="flex items-center gap-3">
+                                <i class="fas fa-chart-line w-5 h-5"></i>
+                                <span>Trading Plans</span>
+                            </div>
+                            <i class="fas fa-chevron-down w-4 h-4 transition-transform" :class="open ? 'rotate-180' : ''"></i>
+                        </button>
+                        <div x-show="open" 
+                            x-transition:enter="transition ease-out duration-200"
+                            x-transition:enter-start="opacity-0 -translate-y-2"
+                            x-transition:enter-end="opacity-100 translate-y-0"
+                            class="pl-12 mt-1 space-y-1">
+                                                        <a href="https://gainledgecapital.com/user/investment/buy-plan" 
+                                                                class="flex items-center gap-3 px-4 py-2 rounded-xl transition-all text-gray-400 hover:text-gray-100">
+                                Trade
+                            </a>
+                                                                                    <a href="https://gainledgecapital.com/user/investment/my-plans" 
+                                                                class="flex items-center gap-3 px-4 py-2 rounded-xl transition-all text-gray-400 hover:text-gray-100">
+                                My Plans
+                            </a>
+                                                    </div>
+                    </div>
+                    
+                     
+                                <div x-data="{ open: true }">
+                    <button @click="open = !open" 
+                     class="flex items-center justify-between w-full px-4 py-2.5 rounded-xl transition-all"
+                    :class="{'bg-gradient-to-r from-[#2FE6DE]/10 to-transparent text-[#2FE6DE]': open, 'text-gray-400 hover:bg-[#1A1428] hover:text-gray-100': !open}">
+                        <div class="flex items-center gap-3">
+                            <i data-lucide="repeat" class="w-5 h-5"></i>
+                           Swap Crypto
+                        </div>
+                        <i class="fas fa-chevron-down w-4 h-4 transition-transform" :class="open ? 'rotate-180' : ''"></i>
+                    </button>
+                    <div x-show="open" class="pl-11 mt-1 space-y-1" x-collapse>
+                        <a href="https://gainledgecapital.com/user/crypto-swap/assets" 
+                                                        class="block px-3 py-2 text-gray-400 rounded-lg hover:bg-[#1A1428] transition-colors">
+                             Assets
+                        </a>
+                        <a href="https://gainledgecapital.com/user/crypto-swap/transactions" 
+                                                        class="block px-3 py-2 text-gray-400 rounded-lg hover:bg-[#1A1428] transition-colors bg-[#1A1428]">
+                            Swap History
+                        </a>
+                    </div>
+                </div>
+                
+                
+                                
+                <div x-data="{ open: false }">
+                    <button @click="open = !open" 
+                     class="flex items-center justify-between w-full px-4 py-2.5 rounded-xl transition-all"
+                    :class="{'bg-gradient-to-r from-[#2FE6DE]/10 to-transparent text-[#2FE6DE]': open, 'text-gray-400 hover:bg-[#1A1428] hover:text-gray-100': !open}">
+                        <div class="flex items-center gap-3">
+                            <i data-lucide="copy" class="w-5 h-5"></i>
+                           Copy Trading
+                        </div>
+                        <i class="fas fa-chevron-down w-4 h-4 transition-transform" :class="open ? 'rotate-180' : ''"></i>
+                    </button>
+                    <div x-show="open" class="pl-11 mt-1 space-y-1" x-collapse>
+                        <a href="https://gainledgecapital.com/user/copy-trader" 
+                                                        class="block px-3 py-2 text-gray-400 rounded-lg hover:bg-[#1A1428] transition-colors">
+                             Copy
+                        </a>
+                        <a href="https://gainledgecapital.com/user/copy-trader/copiedtrade" 
+                                                        class="block px-3 py-2 text-gray-400 rounded-lg hover:bg-[#1A1428] transition-colors">
+                            Copied
+                        </a>
+                    </div>
+                </div>
+                
+                
+                                <a href="https://gainledgecapital.com/user/trade-signals/1" 
+                                        class="flex items-center gap-3 px-3 py-2 text-gray-400 hover:text-gray-100 rounded-lg hover:bg-[#1A1428] transition-colors">
+                    <i data-lucide="radio" class="w-5 h-5"></i>
+                   Trade Signals
+                </a>
+                
+                
+                <div class="mt-6">
+                    <p class="px-4 py-2 text-xs font-medium text-gray-400 uppercase mb-2">Account</p>
+
+                                        <a href="https://gainledgecapital.com/user/referral" 
+                                                class="flex items-center gap-3 px-4 py-2.5 rounded-xl transition-all text-gray-400 hover:bg-[#1A1428] hover:text-gray-100">
+                        <i class="fas fa-users w-5 h-5"></i>
+                        <span>Referrals</span>
+                    </a>
+                    
+                    <a href="https://gainledgecapital.com/user/notifications" 
+                                                class="flex items-center gap-3 px-4 py-2.5 rounded-xl transition-all text-gray-400 hover:bg-[#1A1428] hover:text-gray-100">
+                        <i class="fas fa-bell w-5 h-5"></i>
+                       <span>Notifications</span>
+                    </a>
+
+                                        <a href="https://gainledgecapital.com/user/contact-support" 
+                                                class="flex items-center gap-3 px-4 py-2.5 rounded-xl transition-all text-gray-400 hover:bg-[#1A1428] hover:text-gray-100">
+                        <i class="fas fa-headset w-5 h-5"></i>
+                       <span>Support</span>
+                    </a>
+                                    </div>
+            </div>
+             
+    <div class="p-4 border-t border-gray-800/50">
+        
+        <div class="bg-gradient-to-br from-[#2FE6DE]/20 to-transparent p-4 rounded-xl mb-4">
+            <h4 class="font-medium text-[#2FE6DE] mb-2">Ready to Grow?</h4>
+            <p class="text-sm text-gray-400 mb-3">Start your trading journey today and watch your portfolio expand.</p>
+            <a href="https://gainledgecapital.com/user/investment/buy-plan" 
+                                class="block w-full bg-gradient-to-r from-[#2FE6DE] to-[#2FE6DE]/80 text-black text-sm font-medium py-2 px-4 rounded-lg hover:brightness-110 transition-all text-center">
+                Start Trading
+            </a>
+        </div>
+
+        
+        <form action="https://gainledgecapital.com/logout" method="POST">
+            <input type="hidden" name="_token" value="t6FvMDJan92FLaB7dwaCzFh7gj5kiIQ5sRE7SGV3" autocomplete="off">            <button type="submit" 
+                class="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-gray-400 hover:bg-[#1A1428] hover:text-gray-100 transition-all">
+                <i class="fas fa-sign-out-alt w-5 h-5"></i>
+                <span>Logout</span>
+            </button>
+        </form>
+    </div>
+        </nav>
+    </div>
+</aside>        <main class="flex-1 sm:p-4 md:p-6 pb-20 md:pb-6 overflow-hidden">
+                    <div wire:snapshot="{&quot;data&quot;:{&quot;paginators&quot;:[{&quot;page&quot;:1},{&quot;s&quot;:&quot;arr&quot;}]},&quot;memo&quot;:{&quot;id&quot;:&quot;WbpanxnXaUl7RTLGzaY3&quot;,&quot;name&quot;:&quot;user.crypto-swapping.transactions&quot;,&quot;path&quot;:&quot;user\/crypto-swap\/transactions&quot;,&quot;method&quot;:&quot;GET&quot;,&quot;children&quot;:[],&quot;scripts&quot;:[],&quot;assets&quot;:[],&quot;errors&quot;:[],&quot;locale&quot;:&quot;en&quot;},&quot;checksum&quot;:&quot;59688984b7d11319055ca1d8816f58bb5f55655c2caebd9ef4ce447908687048&quot;}" wire:effects="{&quot;url&quot;:{&quot;paginators.page&quot;:{&quot;as&quot;:&quot;page&quot;,&quot;use&quot;:&quot;push&quot;,&quot;alwaysShow&quot;:false,&quot;except&quot;:null}}}" wire:id="WbpanxnXaUl7RTLGzaY3" class="px-2 space-y-6 mb-5 md:mb-1">
+    
+    
+    <div>
+</div>
+
+    <div>
+</div>
+
+
+    
+    <div class="bg-[#0F0A1F] rounded-2xl p-6 space-y-4">
+        <!--[if BLOCK]><![endif]-->            <div class="py-12 text-center">
+                <div class="bg-[#1A1428] w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                    <i data-lucide="arrows-right-left" class="w-8 h-8 text-gray-400"></i>
+                </div>
+                <h3 class="text-lg font-medium text-gray-400">No Swaps Yet</h3>
+                <p class="text-gray-500 text-sm mt-1">Your swap history will appear here</p>
+            </div>
+        <!--[if ENDBLOCK]><![endif]-->
+
+        
+        <div class="mt-6">
+            <div>
+    <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->
+</div>
+
+        </div>
+    </div>
+</div>
+
+            </main>
+    </div>
+
+    <nav class="fixed bottom-0 left-0 right-0 bg-[#0F0A1F] border-t border-gray-800/50 md:hidden z-50">
+    <div class="max-w-screen-xl mx-auto">
+        <div class="grid grid-cols-5 w-full">
+            
+<a href="https://gainledgecapital.com/user/transactions/deposit" 
+     
+    class="group relative flex flex-col items-center justify-center px-2 py-4 transition-colors text-gray-400">
+    <div class="relative w-10 h-10 flex items-center justify-center">
+        <div class="w-full h-full absolute bg-[#2FE6DE]/5 rounded-xl group-hover:bg-[#2FE6DE]/10 transition-colors"></div>
+        <i class="fas fa-clock-rotate-left w-5 h-5"></i>
+        <div class="absolute inset-0 bg-[#2FE6DE]/10 rounded-xl scale-0 group-hover:scale-100 transition-transform"></div>
+    </div>
+    <span class="text-xs mt-1 font-medium group-hover:text-[#2FE6DE] transition-colors">History</span>
+    </a>
+
+
+<a href="https://gainledgecapital.com/user/deposit" 
+        class="group relative flex flex-col items-center justify-center px-2 py-4 transition-colors text-gray-400">
+    <div class="relative w-10 h-10 flex items-center justify-center animate-bounce">
+        <div class="w-full h-full absolute bg-[#2FE6DE]/5 rounded-xl group-hover:bg-[#2FE6DE]/10 transition-colors"></div>
+        <i class="fas fa-coins w-5 h-5"></i>
+        <div class="absolute inset-0 bg-[#2FE6DE]/10 rounded-xl scale-0 group-hover:scale-100 transition-transform"></div>
+    </div>
+    <span class="text-xs mt-1 font-medium group-hover:text-[#2FE6DE] transition-colors">Deposit</span>
+    </a>
+
+
+<a href="https://gainledgecapital.com/user/dashboard" 
+        class="group relative flex flex-col items-center justify-center px-2 py-4 transition-colors text-gray-400">
+    <div class="relative w-10 h-10 flex items-center justify-center">
+        <div class="w-full h-full absolute bg-[#2FE6DE]/5 rounded-xl group-hover:bg-[#2FE6DE]/10 transition-colors"></div>
+        <i class="fas fa-home w-5 h-5"></i>
+        <div class="absolute inset-0 bg-[#2FE6DE]/10 rounded-xl scale-0 group-hover:scale-100 transition-transform"></div>
+    </div>
+    <span class="text-xs mt-1 font-medium group-hover:text-[#2FE6DE] transition-colors">Home</span>
+    </a>
+
+
+<a href="https://gainledgecapital.com/user/withdraw/request" 
+        class="group relative flex flex-col items-center justify-center px-2 py-4 transition-colors text-gray-400">
+    <div class="relative w-10 h-10 flex items-center justify-center">
+        <div class="w-full h-full absolute bg-[#2FE6DE]/5 rounded-xl group-hover:bg-[#2FE6DE]/10 transition-colors"></div>
+        <i class="fas fa-wallet w-5 h-5"></i>
+        <div class="absolute inset-0 bg-[#2FE6DE]/10 rounded-xl scale-0 group-hover:scale-100 transition-transform"></div>
+    </div>
+    <span class="text-xs mt-1 font-medium group-hover:text-[#2FE6DE] transition-colors">Withdraw</span>
+    </a>
+
+
+<button id="mobileMenuToggle" 
+    class="group relative flex flex-col items-center justify-center px-2 py-4 w-full text-gray-400">
+    <div class="relative w-10 h-10 flex items-center justify-center">
+        <div class="w-full h-full absolute bg-[#2FE6DE]/5 rounded-xl group-hover:bg-[#2FE6DE]/10 transition-colors"></div>
+        <i class="fas fa-ellipsis w-5 h-5"></i>
+        <div class="absolute inset-0 bg-[#2FE6DE]/10 rounded-xl scale-0 group-hover:scale-100 transition-transform"></div>
+    </div>
+    <span class="text-xs mt-1 font-medium group-hover:text-[#2FE6DE] transition-colors">Menu</span>
+</button>
+        </div>
+    </div>
+</nav>
+
+    <div id="mobileSidebar" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 md:hidden hidden">
+    <div class="absolute left-0 top-0 bottom-0 w-80 bg-[#0F0A1F] shadow-xl overflow-hidden">
+        
+        <button id="closeMobileSidebar" 
+            class="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-full bg-gray-800/50 text-gray-400 hover:text-[#2FE6DE] transition-colors">
+            <i class="fas fa-times"></i>
+        </button>
+
+        
+        <div class="flex flex-col h-full">
+            
+            <div class="p-6 border-b border-gray-800/50">
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-xl bg-[#1A1428] flex-shrink-0 overflow-hidden">
+                        <img 
+                            src="https://gainledgecapital.com/dash/images/avatar.svg"
+                            alt="Joske Meulemans"
+                            class="w-full h-full object-cover">
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-medium truncate">Joske Meulemans</h3>
+                        <p class="text-sm text-gray-400 truncate">joskemeulemans@hotmail.com</p>
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="flex-1 overflow-y-auto">
+                <div class="p-4">
+                    <nav class="space-y-6">
+                        
+                        <div class="space-y-1">
+                            <p class="px-4 text-xs font-medium text-gray-400 uppercase mb-2">Main Menu</p>
+                            
+                            <a href="https://gainledgecapital.com/user/dashboard" 
+                                                                class="flex items-center gap-3 px-4 py-2.5 rounded-xl transition-all text-gray-400 hover:bg-[#1A1428] hover:text-gray-100">
+                                <i class="fas fa-th-large w-5 h-5"></i>
+                                <span>Dashboard</span>
+                            </a>
+                        </div>
+
+                        
+                        <div class="space-y-1">
+                            <p class="px-4 text-xs font-medium text-gray-400 uppercase mb-2">Finance Management</p>
+                            
+                                                        <a href="https://gainledgecapital.com/user/deposit" 
+                                                                class="flex items-center gap-3 px-4 py-2.5 rounded-xl transition-all text-gray-400 hover:bg-[#1A1428] hover:text-gray-100">
+                                <i class="fas fa-arrow-down w-5 h-5"></i>
+                                <span>Deposit</span>
+                            </a>
+                            
+                                                        <a href="https://gainledgecapital.com/user/withdraw/request" 
+                                                                class="flex items-center gap-3 px-4 py-2.5 rounded-xl transition-all text-gray-400 hover:bg-[#1A1428] hover:text-gray-100">
+                                <i class="fas fa-arrow-up w-5 h-5"></i>
+                                <span>Withdraw</span>
+                            </a>
+                            
+                                                        <a href="https://gainledgecapital.com/user/transactions/deposit" 
+                                                                class="flex items-center gap-3 px-4 py-2.5 rounded-xl transition-all text-gray-400 hover:bg-[#1A1428] hover:text-gray-100">
+                                <i class="fas fa-file-alt w-5 h-5"></i>
+                                <span>Transactions</span>
+                            </a>
+                            
+                                                        <a href="https://gainledgecapital.com/user/transfer-fund" 
+                                                                class="flex items-center gap-3 px-4 py-2.5 rounded-xl transition-all text-gray-400 hover:bg-[#1A1428] hover:text-gray-100">
+                                <i class="fas fa-exchange-alt w-5 h-5"></i>
+                                <span>Transfer Funds</span>
+                            </a>
+                                                    </div>
+
+                        
+                        <div class="space-y-1">
+                            <p class="px-4 text-xs font-medium text-gray-400 uppercase mb-2">Trading &amp; Investments</p>
+
+                                                        <div x-data="{ open: false }">
+                                <button @click="open = !open" 
+                                    class="flex items-center justify-between w-full px-4 py-2.5 rounded-xl transition-all"
+                                    :class="{'bg-gradient-to-r from-[#2FE6DE]/10 to-transparent text-[#2FE6DE]': open, 'text-gray-400 hover:bg-[#1A1428] hover:text-gray-100': !open}">
+                                    <div class="flex items-center gap-3">
+                                        <i class="fas fa-chart-line w-5 h-5"></i>
+                                        <span>Trading Plans</span>
+                                    </div>
+                                    <i class="fas fa-chevron-down w-4 h-4 transition-transform" :class="open ? 'rotate-180' : ''"></i>
+                                </button>
+                                <div x-show="open"
+                                    x-transition:enter="transition ease-out duration-200"
+                                    x-transition:enter-start="opacity-0 -translate-y-2"
+                                    x-transition:enter-end="opacity-100 translate-y-0"
+                                    class="pl-12 mt-1 space-y-1">
+                                                                        <a href="https://gainledgecapital.com/user/investment/buy-plan" 
+                                                                                class="flex items-center gap-3 px-4 py-2.5 rounded-xl transition-all text-gray-400 hover:text-gray-100">
+                                        Trade
+                                    </a>
+                                                                                                            <a href="https://gainledgecapital.com/user/investment/my-plans" 
+                                                                                class="flex items-center gap-3 px-4 py-2.5 rounded-xl transition-all text-gray-400 hover:text-gray-100">
+                                        My Plans
+                                    </a>
+                                                                    </div>
+                            </div>
+                            
+                                                        <div x-data="{ open: true }">
+                                <button @click="open = !open" 
+                                    class="flex items-center justify-between w-full px-4 py-2.5 rounded-xl transition-all"
+                                    :class="{'bg-gradient-to-r from-[#2FE6DE]/10 to-transparent text-[#2FE6DE]': open, 'text-gray-400 hover:bg-[#1A1428] hover:text-gray-100': !open}">
+                                    <div class="flex items-center gap-3">
+                                        <i class="fas fa-exchange-alt w-5 h-5"></i>
+                                        <span>Swap Crypto</span>
+                                    </div>
+                                    <i class="fas fa-chevron-down w-4 h-4 transition-transform" :class="open ? 'rotate-180' : ''"></i>
+                                </button>
+                                <div x-show="open"
+                                    x-transition:enter="transition ease-out duration-200"
+                                    x-transition:enter-start="opacity-0 -translate-y-2"
+                                    x-transition:enter-end="opacity-100 translate-y-0"
+                                    class="pl-12 mt-1 space-y-1">
+                                    <a href="https://gainledgecapital.com/user/crypto-swap/assets" 
+                                                                                class="flex items-center gap-3 px-4 py-2.5 rounded-xl transition-all text-gray-400 hover:text-gray-100">
+                                        Assets
+                                    </a>
+                                    <a href="https://gainledgecapital.com/user/crypto-swap/transactions" 
+                                                                                class="flex items-center gap-3 px-4 py-2.5 rounded-xl transition-all text-[#2FE6DE]">
+                                        Swap History
+                                    </a>
+                                </div>
+                            </div>
+                                                        
+                                
+                <div x-data="{ open: false }">
+                                <button @click="open = !open" 
+                                    class="flex items-center justify-between w-full px-4 py-2.5 rounded-xl transition-all"
+                                    :class="{'bg-gradient-to-r from-[#2FE6DE]/10 to-transparent text-[#2FE6DE]': open, 'text-gray-400 hover:bg-[#1A1428] hover:text-gray-100': !open}">
+                                    <div class="flex items-center gap-3">
+                                        <i class="fas fa-copy w-5 h-5"></i>
+                                        <span>Copy Trading</span>
+                                    </div>
+                                    <i class="fas fa-chevron-down w-4 h-4 transition-transform" :class="open ? 'rotate-180' : ''"></i>
+                                </button>
+                                <div x-show="open"
+                                    x-transition:enter="transition ease-out duration-200"
+                                    x-transition:enter-start="opacity-0 -translate-y-2"
+                                    x-transition:enter-end="opacity-100 translate-y-0"
+                                    class="pl-12 mt-1 space-y-1">
+                                    <a href="https://gainledgecapital.com/user/copy-trader" 
+                                                                                class="flex items-center gap-3 px-4 py-2.5 rounded-xl transition-all text-gray-400 hover:text-gray-100">
+                                        Copy
+                                    </a>
+                                    <a href="https://gainledgecapital.com/user/copy-trader/copiedtrade" 
+                                                                                class="flex items-center gap-3 px-4 py-2.5 rounded-xl transition-all text-gray-400 hover:text-gray-100">
+                                       Copied
+                                    </a>
+                                </div>
+                            </div>
+                
+                
+                                <a href="https://gainledgecapital.com/user/trade-signals/1" 
+                                        class="flex items-center gap-3 px-3 py-2 text-gray-400 hover:text-gray-100 rounded-lg hover:bg-[#1A1428] transition-colors">
+                    <i data-lucide="radio" class="w-5 h-5"></i>
+                    Trade Signals
+                </a>
+                
+                        </div>
+
+                        
+                        <div class="space-y-1">
+                            <p class="px-4 text-xs font-medium text-gray-400 uppercase mb-2">Account</p>
+
+                                                        <a href="https://gainledgecapital.com/user/referral" 
+                                                                class="flex items-center gap-3 px-4 py-2.5 rounded-xl transition-all text-gray-400 hover:bg-[#1A1428] hover:text-gray-100">
+                                <i class="fas fa-users w-5 h-5"></i>
+                                <span>Referrals</span>
+                            </a>
+                            
+                            <a href="https://gainledgecapital.com/user/notifications" 
+                                                                class="flex items-center gap-3 px-4 py-2.5 rounded-xl transition-all text-gray-400 hover:bg-[#1A1428] hover:text-gray-100">
+                                <i class="fas fa-bell w-5 h-5"></i>
+                                <span>Notifications</span>
+                            </a>
+
+                                                        <a href="https://gainledgecapital.com/user/contact-support" 
+                                                                class="flex items-center gap-3 px-4 py-2.5 rounded-xl transition-all text-gray-400 hover:bg-[#1A1428] hover:text-gray-100">
+                                <i class="fas fa-headset w-5 h-5"></i>
+                                <span>Support</span>
+                            </a>
+                                                    </div>
+                    </nav>
+                </div>
+                </div>
+
+            
+            <div class="p-4 border-t border-gray-800/50">
+                
+                <div class="bg-gradient-to-br from-[#2FE6DE]/20 to-transparent p-4 rounded-xl mb-4">
+                    <h4 class="font-medium text-[#2FE6DE] mb-2">Ready to Grow?</h4>
+                    <p class="text-sm text-gray-400 mb-3">Start your trading journey today and watch your portfolio expand.</p>
+                    <a href="https://gainledgecapital.com/user/investment/buy-plan" 
+                                                class="block w-full bg-gradient-to-r from-[#2FE6DE] to-[#2FE6DE]/80 text-black text-sm font-medium py-2.5 px-4 rounded-lg hover:brightness-110 transition-all text-center">
+                        Start Trading
+                    </a>
+                </div>
+
+                
+                <form action="https://gainledgecapital.com/logout" method="POST">
+                    <input type="hidden" name="_token" value="t6FvMDJan92FLaB7dwaCzFh7gj5kiIQ5sRE7SGV3" autocomplete="off">                    <button type="submit" 
+                        class="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-gray-400 hover:bg-[#1A1428] hover:text-gray-100 transition-all">
+                        <i class="fas fa-sign-out-alt w-5 h-5"></i>
+                        <span>Logout</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    // Mobile Sidebar Toggle
+    document.addEventListener('DOMContentLoaded', function() {
+        const mobileSidebar = document.getElementById('mobileSidebar');
+        const closeMobileSidebar = document.getElementById('closeMobileSidebar');
+        
+        // Close button click
+        closeMobileSidebar.addEventListener('click', function() {
+            mobileSidebar.classList.add('hidden');
+        });
+
+        // Close on outside click
+        mobileSidebar.addEventListener('click', function(e) {
+            if (e.target === mobileSidebar) {
+                mobileSidebar.classList.add('hidden');
+            }
+        });
+    });
+</script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+
+            window.locale = 'en';
+            window.translations = "investment";
+        });
+
+        function setupDropdown(triggerId, menuId) {
+            const trigger = document.getElementById(triggerId);
+            const menu = document.getElementById(menuId);
+
+            if (trigger && menu) {
+                trigger.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    menu.classList.toggle('hidden');
+                });
+
+                document.addEventListener('click', (e) => {
+                    if (!menu.contains(e.target)) {
+                        menu.classList.add('hidden');
+                    }
+                });
+            }
+        }
+
+        setupDropdown('languageDropdown', 'languageMenu');
+        setupDropdown('notificationDropdown', 'notificationMenu');
+        setupDropdown('userDropdown', 'userMenu');
+    </script>
+    <!-- Livewire Scripts -->
+<script src="/livewire/livewire.js?id=cc800bf4"   data-csrf="t6FvMDJan92FLaB7dwaCzFh7gj5kiIQ5sRE7SGV3" data-update-uri="/livewire/update" data-navigate-once="true"></script>
+    <script>
+    // Initialize Lucide/Font Awesome icons if not already initialized
+    if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+    }
+</script>
+<script>
+    if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+    }
+</script>
+<script>
+    // Mobile menu toggle functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const mobileSidebar = document.getElementById('mobileSidebar');
+        const closeMobileSidebar = document.getElementById('closeMobileSidebar');
+
+        if (mobileMenuToggle && mobileSidebar && closeMobileSidebar) {
+            // Toggle menu
+            mobileMenuToggle.addEventListener('click', () => {
+                mobileSidebar.classList.toggle('hidden');
+            });
+
+            // Close menu
+            closeMobileSidebar.addEventListener('click', () => {
+                mobileSidebar.classList.add('hidden');
+            });
+
+            // Close on outside click
+            mobileSidebar.addEventListener('click', (e) => {
+                if (e.target === mobileSidebar) {
+                    mobileSidebar.classList.add('hidden');
+                }
+            });
+        }
+    });
+</script>
+</body>
+
+</html>

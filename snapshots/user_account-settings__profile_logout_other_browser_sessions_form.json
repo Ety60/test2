@@ -1,0 +1,18 @@
+{
+  "data": {
+    "confirmingLogout": false,
+    "password": ""
+  },
+  "memo": {
+    "id": "SudG4BO0TmRsI0Skispm",
+    "name": "profile.logout-other-browser-sessions-form",
+    "path": "user/account-settings",
+    "method": "GET",
+    "children": [],
+    "scripts": [],
+    "assets": [],
+    "errors": [],
+    "locale": "en"
+  },
+  "checksum": "7c3e67e9af2f4cf0b623b7484352c08aef81bae487aa190776068b744c2272bb"
+}

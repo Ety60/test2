@@ -1,0 +1,24 @@
+{
+  "data": {
+    "paginators": [
+      {
+        "page": 1
+      },
+      {
+        "s": "arr"
+      }
+    ]
+  },
+  "memo": {
+    "id": "WbpanxnXaUl7RTLGzaY3",
+    "name": "user.crypto-swapping.transactions",
+    "path": "user/crypto-swap/transactions",
+    "method": "GET",
+    "children": [],
+    "scripts": [],
+    "assets": [],
+    "errors": [],
+    "locale": "en"
+  },
+  "checksum": "59688984b7d11319055ca1d8816f58bb5f55655c2caebd9ef4ce447908687048"
+}

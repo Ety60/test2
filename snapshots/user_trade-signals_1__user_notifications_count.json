@@ -1,0 +1,15 @@
+{
+  "data": [],
+  "memo": {
+    "id": "i7w2AtZ4r0L7GZtHzIwS",
+    "name": "user.notifications-count",
+    "path": "user/trade-signals/1",
+    "method": "GET",
+    "children": [],
+    "scripts": [],
+    "assets": [],
+    "errors": [],
+    "locale": "en"
+  },
+  "checksum": "208796514363b9d222f5d0bb51686f96d5906e268c234b61e98125197b191bde"
+}

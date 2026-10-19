@@ -1,0 +1,757 @@
+{
+  "user.notifications-count": {
+    "name": "user.notifications-count",
+    "first_seen": "user_account-settings",
+    "data_keys": [],
+    "model_classes": [],
+    "model_keys": [],
+    "children": [],
+    "actions_in_template": [
+      "$set('amount', '15000')",
+      "$set('amount', '5000')",
+      "$set('amount', '50000')",
+      "$set('method', 'Bitcoin')",
+      "$set('method', 'Ethereum')",
+      "$set('method', 'USDT')",
+      "$set('selectedMethod', 12)",
+      "$set('selectedMethod', 2)",
+      "$set('selectedMethod', 9)",
+      "$set('show_password', true)",
+      "$toggle('confirmingLogout')",
+      "$toggle('confirmingUserDeletion')",
+      "confirmLogout",
+      "confirmPassword",
+      "confirmUserDeletion",
+      "deleteUser",
+      "joinPlan",
+      "logoutOtherBrowserSessions",
+      "selectFromAsset('ADA')",
+      "selectFromAsset('Account Balance')",
+      "selectFromAsset('BCH')",
+      "selectFromAsset('BNB')",
+      "selectFromAsset('BTC')",
+      "selectFromAsset('ETH')",
+      "selectFromAsset('LTC')",
+      "selectFromAsset('USDT')",
+      "selectFromAsset('XLM')",
+      "selectFromAsset('XRP')",
+      "selectToAsset('ADA')",
+      "selectToAsset('Account Balance')",
+      "selectToAsset('BCH')",
+      "selectToAsset('BNB')",
+      "selectToAsset('BTC')",
+      "selectToAsset('ETH')",
+      "selectToAsset('LTC')",
+      "selectToAsset('USDT')",
+      "selectToAsset('XLM')",
+      "selectToAsset('XRP')",
+      "setPercentageAmount(100)",
+      "setPercentageAmount(15)",
+      "setPercentageAmount(5)",
+      "setPercentageAmount(50)",
+      "stopConfirmingPassword",
+      "switchAssets"
+    ],
+    "wire_models": [
+      "confirmablePassword",
+      "document_type",
+      "password"
+    ],
+    "snapshots": [
+      {
+        "page": "user_account-settings",
+        "file": "snapshots/user_account-settings__user_notifications_count.json",
+        "wire_id": "Uw6DMbvgmWMQr6J9IsHA"
+      },
+      {
+        "page": "user_contact-support",
+        "file": "snapshots/user_contact-support__user_notifications_count.json",
+        "wire_id": "p4oTl0COUUr9GnKHJDPU"
+      },
+      {
+        "page": "user_copy-trader",
+        "file": "snapshots/user_copy-trader__user_notifications_count.json",
+        "wire_id": "ROE6MCp2wjYMOWtdbu8j"
+      },
+      {
+        "page": "user_copy-trader_copiedtrade",
+        "file": "snapshots/user_copy-trader_copiedtrade__user_notifications_count.json",
+        "wire_id": "CMTkgbbsvbeRFytKh7OT"
+      },
+      {
+        "page": "user_crypto-swap_assets",
+        "file": "snapshots/user_crypto-swap_assets__user_notifications_count.json",
+        "wire_id": "Mdn47m1IJrdkwcSydQCW"
+      },
+      {
+        "page": "user_crypto-swap_coin_BTC",
+        "file": "snapshots/user_crypto-swap_coin_BTC__user_notifications_count.json",
+        "wire_id": "VtbDkJp43DD3ectwIfmr"
+      },
+      {
+        "page": "user_crypto-swap_convert_BTC",
+        "file": "snapshots/user_crypto-swap_convert_BTC__user_notifications_count.json",
+        "wire_id": "utp5VTzJCZuc8yVYZMWb"
+      },
+      {
+        "page": "user_crypto-swap_transactions",
+        "file": "snapshots/user_crypto-swap_transactions__user_notifications_count.json",
+        "wire_id": "IqeIvZSimZAUW92tyIbG"
+      },
+      {
+        "page": "user_dashboard",
+        "file": "snapshots/user_dashboard__user_notifications_count.json",
+        "wire_id": "0AMd9IFTxgxQlbfzENK2"
+      },
+      {
+        "page": "user_deposit",
+        "file": "snapshots/user_deposit__user_notifications_count.json",
+        "wire_id": "GFIEJAyuySealHWQz2Fx"
+      },
+      {
+        "page": "user_investment_buy-plan",
+        "file": "snapshots/user_investment_buy-plan__user_notifications_count.json",
+        "wire_id": "SPhHpUhuggGVk0Hd3bjE"
+      },
+      {
+        "page": "user_investment_my-plans",
+        "file": "snapshots/user_investment_my-plans__user_notifications_count.json",
+        "wire_id": "wUp21tAjy24kHVMrj1tF"
+      },
+      {
+        "page": "user_kyc_start",
+        "file": "snapshots/user_kyc_start__user_notifications_count.json",
+        "wire_id": "Tl6JVLTPGybjwTLKnSBk"
+      },
+      {
+        "page": "user_kyc_submit",
+        "file": "snapshots/user_kyc_submit__user_notifications_count.json",
+        "wire_id": "zwX0HmL1oMgVxip3DJtC"
+      },
+      {
+        "page": "user_notifications",
+        "file": "snapshots/user_notifications__user_notifications_count.json",
+        "wire_id": "pMuvbIMG7ohCUu925SNO"
+      },
+      {
+        "page": "user_referral",
+        "file": "snapshots/user_referral__user_notifications_count.json",
+        "wire_id": "VasdfcZ29xq084jK0hSK"
+      },
+      {
+        "page": "user_trade-signals_1",
+        "file": "snapshots/user_trade-signals_1__user_notifications_count.json",
+        "wire_id": "i7w2AtZ4r0L7GZtHzIwS"
+      },
+      {
+        "page": "user_transactions_deposit",
+        "file": "snapshots/user_transactions_deposit__user_notifications_count.json",
+        "wire_id": "vHwl6mvSGSzfwAPYGYNI"
+      },
+      {
+        "page": "user_transactions_others",
+        "file": "snapshots/user_transactions_others__user_notifications_count.json",
+        "wire_id": "En2XSQN4j4oNeVCT13XP"
+      },
+      {
+        "page": "user_transactions_withdrawal",
+        "file": "snapshots/user_transactions_withdrawal__user_notifications_count.json",
+        "wire_id": "E2flG6p9Kmf9lweGU7Yw"
+      },
+      {
+        "page": "user_transfer-fund",
+        "file": "snapshots/user_transfer-fund__user_notifications_count.json",
+        "wire_id": "RgsR3TwUy1bxHe9Im79A"
+      },
+      {
+        "page": "user_withdraw_request",
+        "file": "snapshots/user_withdraw_request__user_notifications_count.json",
+        "wire_id": "q7maSe7E3FhzVgMo4s7s"
+      }
+    ]
+  },
+  "user.account-settings.show": {
+    "name": "user.account-settings.show",
+    "first_seen": "user_account-settings",
+    "data_keys": [
+      "account_name",
+      "account_number",
+      "active_tab",
+      "address",
+      "avatar",
+      "bank_name",
+      "btc_address",
+      "country",
+      "current_password",
+      "email",
+      "eth_address",
+      "ltc_address",
+      "name",
+      "password",
+      "password_confirmation",
+      "phone_number",
+      "swift_code",
+      "usdt_address",
+      "user",
+      "username"
+    ],
+    "model_classes": [
+      "App\\Models\\User"
+    ],
+    "model_keys": [
+      136
+    ],
+    "children": [
+      "lw-3950334646-0",
+      "lw-3950334646-1",
+      "lw-3950334646-2"
+    ],
+    "actions_in_template": [],
+    "wire_models": [],
+    "snapshots": [
+      {
+        "page": "user_account-settings",
+        "file": "snapshots/user_account-settings__user_account_settings_show.json",
+        "wire_id": "7qmns9udcMjmH9wjVcDT"
+      }
+    ]
+  },
+  "profile.two-factor-authentication-form": {
+    "name": "profile.two-factor-authentication-form",
+    "first_seen": "user_account-settings",
+    "data_keys": [
+      "code",
+      "confirmableId",
+      "confirmablePassword",
+      "confirmingPassword",
+      "showingConfirmation",
+      "showingQrCode",
+      "showingRecoveryCodes"
+    ],
+    "model_classes": [],
+    "model_keys": [],
+    "children": [],
+    "actions_in_template": [],
+    "wire_models": [],
+    "snapshots": [
+      {
+        "page": "user_account-settings",
+        "file": "snapshots/user_account-settings__profile_two_factor_authentication_form.json",
+        "wire_id": "3UuBgKmua3l9RuFh7CrT"
+      }
+    ]
+  },
+  "profile.logout-other-browser-sessions-form": {
+    "name": "profile.logout-other-browser-sessions-form",
+    "first_seen": "user_account-settings",
+    "data_keys": [
+      "confirmingLogout",
+      "password"
+    ],
+    "model_classes": [],
+    "model_keys": [],
+    "children": [],
+    "actions_in_template": [],
+    "wire_models": [],
+    "snapshots": [
+      {
+        "page": "user_account-settings",
+        "file": "snapshots/user_account-settings__profile_logout_other_browser_sessions_form.json",
+        "wire_id": "SudG4BO0TmRsI0Skispm"
+      }
+    ]
+  },
+  "profile.delete-user-form": {
+    "name": "profile.delete-user-form",
+    "first_seen": "user_account-settings",
+    "data_keys": [
+      "confirmingUserDeletion",
+      "password"
+    ],
+    "model_classes": [],
+    "model_keys": [],
+    "children": [],
+    "actions_in_template": [],
+    "wire_models": [],
+    "snapshots": [
+      {
+        "page": "user_account-settings",
+        "file": "snapshots/user_account-settings__profile_delete_user_form.json",
+        "wire_id": "Q5FJBpdVbjs6kfa12kNl"
+      }
+    ]
+  },
+  "user.contact-support": {
+    "name": "user.contact-support",
+    "first_seen": "user_contact-support",
+    "data_keys": [
+      "message",
+      "search",
+      "subject"
+    ],
+    "model_classes": [],
+    "model_keys": [],
+    "children": [],
+    "actions_in_template": [],
+    "wire_models": [],
+    "snapshots": [
+      {
+        "page": "user_contact-support",
+        "file": "snapshots/user_contact-support__user_contact_support.json",
+        "wire_id": "oG4Ng3WTAWWS4lUEvYbL"
+      }
+    ]
+  },
+  "user.crypto-swapping.assets": {
+    "name": "user.crypto-swapping.assets",
+    "first_seen": "user_crypto-swap_assets",
+    "data_keys": [
+      "estimated_balance",
+      "search"
+    ],
+    "model_classes": [],
+    "model_keys": [],
+    "children": [],
+    "actions_in_template": [],
+    "wire_models": [],
+    "snapshots": [
+      {
+        "page": "user_crypto-swap_assets",
+        "file": "snapshots/user_crypto-swap_assets__user_crypto_swapping_assets.json",
+        "wire_id": "E9nCcbNUg1ESkU5BoLUI"
+      }
+    ]
+  },
+  "user.crypto-swapping.view-coin": {
+    "name": "user.crypto-swapping.view-coin",
+    "first_seen": "user_crypto-swap_coin_BTC",
+    "data_keys": [
+      "coin"
+    ],
+    "model_classes": [
+      "App\\Models\\CryptoCurrency"
+    ],
+    "model_keys": [
+      9
+    ],
+    "children": [],
+    "actions_in_template": [],
+    "wire_models": [],
+    "snapshots": [
+      {
+        "page": "user_crypto-swap_coin_BTC",
+        "file": "snapshots/user_crypto-swap_coin_BTC__user_crypto_swapping_view_coin.json",
+        "wire_id": "Lay3NlYZ5p85uL8fIOP1"
+      }
+    ]
+  },
+  "user.crypto-swapping.conversion": {
+    "name": "user.crypto-swapping.conversion",
+    "first_seen": "user_crypto-swap_convert_BTC",
+    "data_keys": [
+      "coin",
+      "from_amount",
+      "from_balance",
+      "from_currency",
+      "from_is_account_balance",
+      "quantity",
+      "symbol",
+      "to_amount",
+      "to_balance",
+      "to_currency",
+      "to_deduct",
+      "to_is_account_balance",
+      "user",
+      "user_account"
+    ],
+    "model_classes": [
+      "App\\Models\\CryptoAccount",
+      "App\\Models\\CryptoCurrency",
+      "App\\Models\\User"
+    ],
+    "model_keys": [
+      136,
+      65,
+      9
+    ],
+    "children": [],
+    "actions_in_template": [],
+    "wire_models": [],
+    "snapshots": [
+      {
+        "page": "user_crypto-swap_convert_BTC",
+        "file": "snapshots/user_crypto-swap_convert_BTC__user_crypto_swapping_conversion.json",
+        "wire_id": "YLyDyarIk9auv0CYjWy8"
+      }
+    ]
+  },
+  "user.crypto-swapping.transactions": {
+    "name": "user.crypto-swapping.transactions",
+    "first_seen": "user_crypto-swap_transactions",
+    "data_keys": [
+      "paginators"
+    ],
+    "model_classes": [],
+    "model_keys": [],
+    "children": [],
+    "actions_in_template": [],
+    "wire_models": [],
+    "snapshots": [
+      {
+        "page": "user_crypto-swap_transactions",
+        "file": "snapshots/user_crypto-swap_transactions__user_crypto_swapping_transactions.json",
+        "wire_id": "WbpanxnXaUl7RTLGzaY3"
+      }
+    ]
+  },
+  "user.dashboard": {
+    "name": "user.dashboard",
+    "first_seen": "user_dashboard",
+    "data_keys": [],
+    "model_classes": [],
+    "model_keys": [],
+    "children": [],
+    "actions_in_template": [],
+    "wire_models": [],
+    "snapshots": [
+      {
+        "page": "user_dashboard",
+        "file": "snapshots/user_dashboard__user_dashboard.json",
+        "wire_id": "2wbHQycuDoPt13CacvMP"
+      }
+    ]
+  },
+  "user.deposit.start-deposit": {
+    "name": "user.deposit.start-deposit",
+    "first_seen": "user_deposit",
+    "data_keys": [
+      "amount",
+      "cryptoRates",
+      "error",
+      "loading",
+      "method",
+      "methods"
+    ],
+    "model_classes": [],
+    "model_keys": [],
+    "children": [],
+    "actions_in_template": [],
+    "wire_models": [],
+    "snapshots": [
+      {
+        "page": "user_deposit",
+        "file": "snapshots/user_deposit__user_deposit_start_deposit.json",
+        "wire_id": "DyDBOmNurQsBWoKqwjGn"
+      }
+    ]
+  },
+  "user.investment-plan.buy-a-plan": {
+    "name": "user.investment-plan.buy-a-plan",
+    "first_seen": "user_investment_buy-plan",
+    "data_keys": [
+      "amount",
+      "disabled",
+      "paymentMethod",
+      "planSelected",
+      "roiInfo"
+    ],
+    "model_classes": [
+      "App\\Models\\Plan"
+    ],
+    "model_keys": [
+      4
+    ],
+    "children": [],
+    "actions_in_template": [],
+    "wire_models": [],
+    "snapshots": [
+      {
+        "page": "user_investment_buy-plan",
+        "file": "snapshots/user_investment_buy-plan__user_investment_plan_buy_a_plan.json",
+        "wire_id": "EaWLtlDuNG7Y3ggvIdud"
+      }
+    ]
+  },
+  "user.investment-plan.my-plans": {
+    "name": "user.investment-plan.my-plans",
+    "first_seen": "user_investment_my-plans",
+    "data_keys": [
+      "sort_value"
+    ],
+    "model_classes": [],
+    "model_keys": [],
+    "children": [],
+    "actions_in_template": [],
+    "wire_models": [],
+    "snapshots": [
+      {
+        "page": "user_investment_my-plans",
+        "file": "snapshots/user_investment_my-plans__user_investment_plan_my_plans.json",
+        "wire_id": "Kub5K8M0WmQKy2jGMO2K"
+      }
+    ]
+  },
+  "user.kyc.info": {
+    "name": "user.kyc.info",
+    "first_seen": "user_kyc_start",
+    "data_keys": [],
+    "model_classes": [],
+    "model_keys": [],
+    "children": [],
+    "actions_in_template": [],
+    "wire_models": [],
+    "snapshots": [
+      {
+        "page": "user_kyc_start",
+        "file": "snapshots/user_kyc_start__user_kyc_info.json",
+        "wire_id": "Ofz99xXgOgYoK4BP8bfs"
+      }
+    ]
+  },
+  "user.kyc.form": {
+    "name": "user.kyc.form",
+    "first_seen": "user_kyc_submit",
+    "data_keys": [
+      "address",
+      "backImg",
+      "city",
+      "country",
+      "dob",
+      "document_type",
+      "email",
+      "first_name",
+      "frontImg",
+      "last_name",
+      "phone_number",
+      "social_media",
+      "state",
+      "status"
+    ],
+    "model_classes": [],
+    "model_keys": [],
+    "children": [],
+    "actions_in_template": [],
+    "wire_models": [],
+    "snapshots": [
+      {
+        "page": "user_kyc_submit",
+        "file": "snapshots/user_kyc_submit__user_kyc_form.json",
+        "wire_id": "PnDlujuwruCt2PO5NKwq"
+      }
+    ]
+  },
+  "user.notifications": {
+    "name": "user.notifications",
+    "first_seen": "user_notifications",
+    "data_keys": [
+      "paginators",
+      "user"
+    ],
+    "model_classes": [
+      "App\\Models\\User"
+    ],
+    "model_keys": [
+      136
+    ],
+    "children": [],
+    "actions_in_template": [],
+    "wire_models": [],
+    "snapshots": [
+      {
+        "page": "user_notifications",
+        "file": "snapshots/user_notifications__user_notifications.json",
+        "wire_id": "zUZo19yiLHoKS0Iid73h"
+      }
+    ]
+  },
+  "user.referral": {
+    "name": "user.referral",
+    "first_seen": "user_referral",
+    "data_keys": [
+      "children",
+      "commision",
+      "directIDs",
+      "downlinesIds",
+      "level",
+      "level1IDs",
+      "level2IDs",
+      "level3IDs",
+      "level4IDs",
+      "level5IDs",
+      "paginators",
+      "refLevel",
+      "referrals",
+      "totalAmountInPlans",
+      "totalDeposit",
+      "totalProfit",
+      "user",
+      "viewRef"
+    ],
+    "model_classes": [],
+    "model_keys": [],
+    "children": [],
+    "actions_in_template": [],
+    "wire_models": [],
+    "snapshots": [
+      {
+        "page": "user_referral",
+        "file": "snapshots/user_referral__user_referral.json",
+        "wire_id": "ayRikX2ISJhA9b7TDNO1"
+      }
+    ]
+  },
+  "user.trade-signal": {
+    "name": "user.trade-signal",
+    "first_seen": "user_trade-signals_1",
+    "data_keys": [
+      "nextPageUrl",
+      "page",
+      "previousPageUrl",
+      "set",
+      "signals",
+      "subscription"
+    ],
+    "model_classes": [],
+    "model_keys": [],
+    "children": [
+      "lw-3072548575-0"
+    ],
+    "actions_in_template": [],
+    "wire_models": [],
+    "snapshots": [
+      {
+        "page": "user_trade-signals_1",
+        "file": "snapshots/user_trade-signals_1__user_trade_signal.json",
+        "wire_id": "HmiPkJSere9Btpf9bdmU"
+      }
+    ]
+  },
+  "user.trade-signal.subscribe": {
+    "name": "user.trade-signal.subscribe",
+    "first_seen": "user_trade-signals_1",
+    "data_keys": [
+      "amount",
+      "duration",
+      "expire",
+      "hasSubscribe",
+      "inviteLink",
+      "monthly",
+      "quarterly",
+      "telegram_id",
+      "yearly"
+    ],
+    "model_classes": [],
+    "model_keys": [],
+    "children": [],
+    "actions_in_template": [],
+    "wire_models": [],
+    "snapshots": [
+      {
+        "page": "user_trade-signals_1",
+        "file": "snapshots/user_trade-signals_1__user_trade_signal_subscribe.json",
+        "wire_id": "jOHDcrdZrasyprWVGfJq"
+      }
+    ]
+  },
+  "user.transactions.deposit": {
+    "name": "user.transactions.deposit",
+    "first_seen": "user_transactions_deposit",
+    "data_keys": [
+      "paginators"
+    ],
+    "model_classes": [],
+    "model_keys": [],
+    "children": [],
+    "actions_in_template": [],
+    "wire_models": [],
+    "snapshots": [
+      {
+        "page": "user_transactions_deposit",
+        "file": "snapshots/user_transactions_deposit__user_transactions_deposit.json",
+        "wire_id": "tmutpWHWBH2nkbO9zOUK"
+      }
+    ]
+  },
+  "user.transactions.others": {
+    "name": "user.transactions.others",
+    "first_seen": "user_transactions_others",
+    "data_keys": [
+      "paginators"
+    ],
+    "model_classes": [],
+    "model_keys": [],
+    "children": [],
+    "actions_in_template": [],
+    "wire_models": [],
+    "snapshots": [
+      {
+        "page": "user_transactions_others",
+        "file": "snapshots/user_transactions_others__user_transactions_others.json",
+        "wire_id": "npZRFMbwsmh0BzSEvJft"
+      }
+    ]
+  },
+  "user.transactions.withdrawal": {
+    "name": "user.transactions.withdrawal",
+    "first_seen": "user_transactions_withdrawal",
+    "data_keys": [
+      "paginators"
+    ],
+    "model_classes": [],
+    "model_keys": [],
+    "children": [],
+    "actions_in_template": [],
+    "wire_models": [],
+    "snapshots": [
+      {
+        "page": "user_transactions_withdrawal",
+        "file": "snapshots/user_transactions_withdrawal__user_transactions_withdrawal.json",
+        "wire_id": "eZDR3ldperUsjOryVvF1"
+      }
+    ]
+  },
+  "user.fund-transfer": {
+    "name": "user.fund-transfer",
+    "first_seen": "user_transfer-fund",
+    "data_keys": [
+      "amount",
+      "email",
+      "password",
+      "show_password",
+      "use_transfer"
+    ],
+    "model_classes": [],
+    "model_keys": [],
+    "children": [],
+    "actions_in_template": [],
+    "wire_models": [],
+    "snapshots": [
+      {
+        "page": "user_transfer-fund",
+        "file": "snapshots/user_transfer-fund__user_fund_transfer.json",
+        "wire_id": "U4cxmH3XF6lGjYW0Ipb3"
+      }
+    ]
+  },
+  "user.withdrawal.choose-withdraw-method": {
+    "name": "user.withdrawal.choose-withdraw-method",
+    "first_seen": "user_withdraw_request",
+    "data_keys": [
+      "method",
+      "request",
+      "selectedMethod"
+    ],
+    "model_classes": [],
+    "model_keys": [],
+    "children": [],
+    "actions_in_template": [],
+    "wire_models": [],
+    "snapshots": [
+      {
+        "page": "user_withdraw_request",
+        "file": "snapshots/user_withdraw_request__user_withdrawal_choose_withdraw_method.json",
+        "wire_id": "ScmKkKTQgPrhKH0HZQ7x"
+      }
+    ]
+  }
+}

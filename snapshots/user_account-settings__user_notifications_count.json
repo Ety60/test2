@@ -1,0 +1,15 @@
+{
+  "data": [],
+  "memo": {
+    "id": "Uw6DMbvgmWMQr6J9IsHA",
+    "name": "user.notifications-count",
+    "path": "user/account-settings",
+    "method": "GET",
+    "children": [],
+    "scripts": [],
+    "assets": [],
+    "errors": [],
+    "locale": "en"
+  },
+  "checksum": "e86c3f360dd41ee3487b1902714c3477bb6729035d65c0556cd81946c44ef56d"
+}

@@ -1,0 +1,56 @@
+{
+  "data": {
+    "avatar": null,
+    "name": "Mark Meulemans",
+    "email": "markmeulemans@hotmail.com",
+    "phone_number": "0687943512",
+    "country": "France",
+    "address": null,
+    "username": "markske",
+    "user": [
+      null,
+      {
+        "class": "App\\Models\\User",
+        "key": 137,
+        "s": "mdl"
+      }
+    ],
+    "current_password": null,
+    "password": null,
+    "password_confirmation": null,
+    "active_tab": "profile",
+    "account_name": null,
+    "account_number": null,
+    "bank_name": null,
+    "swift_code": null,
+    "btc_address": null,
+    "eth_address": null,
+    "ltc_address": null,
+    "usdt_address": null
+  },
+  "memo": {
+    "id": "t5pwKAkNE9mInslF1WJN",
+    "name": "user.account-settings.show",
+    "path": "user/account-settings",
+    "method": "GET",
+    "children": {
+      "lw-3950334646-0": [
+        "div",
+        "dz5KTtGlYDvvOFav2j14"
+      ],
+      "lw-3950334646-1": [
+        "div",
+        "9icKZlkrK0p4HkIye4m6"
+      ],
+      "lw-3950334646-2": [
+        "div",
+        "toXzX46zs8p6AWebKIFa"
+      ]
+    },
+    "scripts": [],
+    "assets": [],
+    "errors": [],
+    "locale": "en"
+  },
+  "checksum": "56a155bff847bdaca40f0e73628991c3663eff05787c844b6b843ae6ecf8acae"
+}

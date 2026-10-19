@@ -1,0 +1,21 @@
+{
+  "data": {
+    "show_password": false,
+    "password": null,
+    "amount": null,
+    "email": null,
+    "use_transfer": true
+  },
+  "memo": {
+    "id": "U4cxmH3XF6lGjYW0Ipb3",
+    "name": "user.fund-transfer",
+    "path": "user/transfer-fund",
+    "method": "GET",
+    "children": [],
+    "scripts": [],
+    "assets": [],
+    "errors": [],
+    "locale": "en"
+  },
+  "checksum": "54a4a4026786e012bc11a8d838c10e3fb879a445a86a37277329b28250b84467"
+}

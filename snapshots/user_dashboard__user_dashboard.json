@@ -1,0 +1,15 @@
+{
+  "data": [],
+  "memo": {
+    "id": "2wbHQycuDoPt13CacvMP",
+    "name": "user.dashboard",
+    "path": "user/dashboard",
+    "method": "GET",
+    "children": [],
+    "scripts": [],
+    "assets": [],
+    "errors": [],
+    "locale": "en"
+  },
+  "checksum": "ac4accca072bf0d13a493408239ad7979d936d1458d7938c251aa2a7cf6e5e37"
+}

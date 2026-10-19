@@ -1,0 +1,15 @@
+{
+  "data": [],
+  "memo": {
+    "id": "Ofz99xXgOgYoK4BP8bfs",
+    "name": "user.kyc.info",
+    "path": "user/kyc/start",
+    "method": "GET",
+    "children": [],
+    "scripts": [],
+    "assets": [],
+    "errors": [],
+    "locale": "en"
+  },
+  "checksum": "411cc65dc089b0680c5a4b76af6382df1c599951e88769692362c7ea4420adb6"
+}

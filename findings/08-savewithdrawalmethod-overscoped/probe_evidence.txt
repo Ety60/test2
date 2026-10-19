@@ -1,0 +1,31 @@
+Run 1 — Single field test (account_name):
+  Sent: updates: {"account_name": "INJECTED_VALUE_TEST", btc/eth/usdt: null}
+  Response: HTTP 200, errors: []
+  After reload: account_name persisted as "INJECTED_VALUE_TEST".
+
+Run 2 — Multi-field test:
+  Sent: updates: {"account_number": "PROBE_ACCT", "bank_name": "PROBE_BANK",
+                  "swift_code": "PROBE_SWIFT", "ltc_address": "PROBE_LTC"}
+  Response: HTTP 200, errors: []
+  After reload: all 4 fields persisted with PROBE_* values.
+
+Run 3 — Email control test (sent invalid email):
+  Sent: updates: {"email": "not_an_email_format"}
+  Response: HTTP 200, errors: [], snap.email reflects "not_an_email_format"
+  After reload: email is unchanged (joskemeulemans@hotmail.com).
+  → email is not in the saveWithdrawalMethod whitelist. Whitelist is
+    *purely financial fields*, but extends beyond the visible form.
+
+Run 4 — phone_number control test:
+  Sent: updates: {"phone_number": "PROBE_PHONE_TEST_REVERT"}
+  Response: HTTP 200, errors: []
+  After reload: phone_number unchanged.
+  → phone_number is not in the saveWithdrawalMethod whitelist either.
+
+Final revert:
+  Sent: updates: {"account_number": null, "bank_name": null,
+                  "swift_code": null, "ltc_address": null,
+                  "account_name": null, "btc_address": null,
+                  "eth_address": null, "usdt_address": null}
+  Response: HTTP 200
+  After reload: all financial fields back to None for Account A.

@@ -1,0 +1,27 @@
+{
+  "data": {
+    "duration": "Choose",
+    "amount": null,
+    "expire": null,
+    "telegram_id": null,
+    "hasSubscribe": false,
+    "inviteLink": null,
+    "monthly": null,
+    "yearly": null,
+    "quarterly": null
+  },
+  "memo": {
+    "id": "jOHDcrdZrasyprWVGfJq",
+    "name": "user.trade-signal.subscribe",
+    "path": "user/trade-signals/1",
+    "method": "GET",
+    "children": [],
+    "scripts": [],
+    "assets": [],
+    "lazyLoaded": false,
+    "lazyIsolated": true,
+    "errors": [],
+    "locale": "en"
+  },
+  "checksum": "3e58c2f2d5af2842389ee8cd721d43007b7cf515cbaf78212b24fead48a35b12"
+}

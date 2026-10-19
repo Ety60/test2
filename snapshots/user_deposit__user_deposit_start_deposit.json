@@ -1,0 +1,44 @@
+{
+  "data": {
+    "method": "Bitcoin",
+    "methods": [
+      null,
+      {
+        "keys": [
+          12,
+          9,
+          2
+        ],
+        "class": "Illuminate\\Database\\Eloquent\\Collection",
+        "modelClass": "App\\Models\\PaymentMethod",
+        "s": "elcln"
+      }
+    ],
+    "amount": null,
+    "cryptoRates": [
+      {
+        "Bitcoin": 1.317332138952194e-05,
+        "Ethereum": 0.00043943295571394675,
+        "USDT": 1.0001910364879694,
+        "Litecoin": 0.01817520901490367
+      },
+      {
+        "s": "arr"
+      }
+    ],
+    "loading": false,
+    "error": false
+  },
+  "memo": {
+    "id": "DyDBOmNurQsBWoKqwjGn",
+    "name": "user.deposit.start-deposit",
+    "path": "user/deposit",
+    "method": "GET",
+    "children": [],
+    "scripts": [],
+    "assets": [],
+    "errors": [],
+    "locale": "en"
+  },
+  "checksum": "dd763338af0ad06249e269519a06b40443ead40ab94e691b0501a1dd8dbebcab"
+}

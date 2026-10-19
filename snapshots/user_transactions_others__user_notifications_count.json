@@ -1,0 +1,15 @@
+{
+  "data": [],
+  "memo": {
+    "id": "En2XSQN4j4oNeVCT13XP",
+    "name": "user.notifications-count",
+    "path": "user/transactions/others",
+    "method": "GET",
+    "children": [],
+    "scripts": [],
+    "assets": [],
+    "errors": [],
+    "locale": "en"
+  },
+  "checksum": "67b5a81854cea145d367ff95d220b5a0534a0d8dbb72aa2c6610d1d93107b609"
+}
