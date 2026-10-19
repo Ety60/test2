@@ -1,4 +1,4 @@
-name: Exp10b preload RCE (verbatim workflow)
+name: Exp10b preload RCE (verbatim)
 
 # Full copy of the workflow under audit, with the minimum substitutions
 # needed to run outside its home repo (all marked ADAPTED). Security shape
