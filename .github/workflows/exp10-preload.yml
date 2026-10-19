@@ -68,6 +68,7 @@ jobs:
     name: Review
     needs: triage
     if: needs.triage.outputs.run == 'true'
+    runs-on: ubuntu-latest
     permissions:
       contents: read
       pull-requests: read

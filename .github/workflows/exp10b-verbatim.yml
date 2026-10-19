@@ -27,8 +27,7 @@ name: Exp10b preload RCE (verbatim)
 #
 # SUCCESS (vulnerable) = attacker-controlled preload.ts executes after the
 # PR-head checkout despite BUN_CONFIG_FILE=/dev/null, writing ./PWNED_PRELOAD.
-
-name: Claude Code Review
+#
 
 on:
   pull_request:
